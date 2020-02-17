@@ -3,7 +3,6 @@ import styled from "@emotion/styled";
 // import colors from "styles/colors";
 import Figma from '../svgs/figma.svg';
 import Illustrator from '../svgs/illustrator.svg';
-import Java from '../svgs/java.svg';
 import Photoshop from '../svgs/photoshop.svg';
 import Rails from '../svgs/rails.svg';
 import ReactNative from '../svgs/reactNative.svg';
@@ -26,9 +25,6 @@ const IconInfo = (props) => {
         line-height: 1.9;
         text-decoration: none;
         color: black;
-        align-self: center;
-    `;
-    const Icon = styled("svg")`
         align-self: center;
     `;
     return (
