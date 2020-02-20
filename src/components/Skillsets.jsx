@@ -7,6 +7,7 @@ import Photoshop from '../svgs/photoshop.svg';
 import Rails from '../svgs/rails.svg';
 import ReactNative from '../svgs/reactNative.svg';
 import XD from '../svgs/xd.svg';
+import Jest from '../svgs/jest.svg';
 
 //can consider having an expand to see more such that it reveals the proficiency level and stuff
 const IconInfo = (props) => {
@@ -75,13 +76,8 @@ export default function Skillsets() {
                 My Skillsets
             </Title>
             <SkillsContainer>
-                {/* <ReactIcon /> */}
-                {/* <Rails /> */}
-                {/* <Photoshop className="item" /> */}
-                {/* <Illustrator className="item"/> */}
-                {/* <XD /> */}
                 <IconInfo svg={<ReactNative />} text="React / React Native" />
-                <IconInfo svg={<Rails />} text="Ruby On Rails" />
+                <IconInfo svg={<Jest />} text="Jest + Enzyme" />
                 <IconInfo svg={<XD />} text="Adobe XD" />
                 <IconInfo svg={<Figma />} text="Figma" />
                 <IconInfo svg={<Illustrator />} text="Adobe Illustrator" />
