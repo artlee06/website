@@ -65,6 +65,10 @@ const AboutBio = styled("div")`
     @media(max-width: ${dimensions.maxwidthMobile}px) {
         grid-row: 2;
     }
+
+    img {
+        max-width: 100%;
+    }
 `
 
 const AboutActions = styled("div")`

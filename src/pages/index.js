@@ -146,6 +146,13 @@ const RenderBody = ({ home, projects, meta }) => (
             </a>
         </Hero>
         <Section>
+            {RichText.render(home.about_title)}
+            <About
+                bio={home.about_bio}
+                socialLinks={home.about_links}
+            />
+        </Section>
+        <Section>
             <Skillsets />
         </Section>
         <Section>
@@ -162,13 +169,6 @@ const RenderBody = ({ home, projects, meta }) => (
             <WorkAction to={"/work"}>
                 See more work <span>&#8594;</span>
             </WorkAction>
-        </Section>
-        <Section>
-            {RichText.render(home.about_title)}
-            <About
-                bio={home.about_bio}
-                socialLinks={home.about_links}
-            />
         </Section>
     </>
 );

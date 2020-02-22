@@ -4,7 +4,6 @@ import styled from "@emotion/styled";
 import Figma from '../svgs/figma.svg';
 import Illustrator from '../svgs/illustrator.svg';
 import Photoshop from '../svgs/photoshop.svg';
-import Rails from '../svgs/rails.svg';
 import ReactNative from '../svgs/reactNative.svg';
 import XD from '../svgs/xd.svg';
 import Jest from '../svgs/jest.svg';
