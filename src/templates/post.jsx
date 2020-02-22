@@ -142,7 +142,7 @@ const Post = ({ post, meta }) => {
                 </PostTitle>
                 <PostMetas>
                     <PostAuthor>
-                        {post.post_author}
+                        Arthur Lee
                     </PostAuthor>
                     <PostDate>
                         <Moment format="MMMM D, YYYY">{post.post_date}</Moment>
