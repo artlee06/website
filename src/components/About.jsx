@@ -103,7 +103,7 @@ const About = ({ bio, socialLinks }) => (
         <AboutActions>
             <a href="mailto:ykarthurlee@gmail.com" target="_blank" rel="noopener noreferrer">
                 <Button className="Button--secondary">
-                    Email me
+                    Email Me
                 </Button>
             </a>
         </AboutActions>
