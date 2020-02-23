@@ -177,13 +177,14 @@ export default ({ data }) => {
     //Required check for no data being returned
     const doc = data.prismic.allHomepages.edges.slice(0, 1).pop();
     const projects = data.prismic.allProjects.edges;
+    const filteredProjects = projects.filter((project) => project.node._meta.uid === "petsaver" || project.node._meta.uid === "giftwrap"  );
     const meta = data.site.siteMetadata;
 
     if (!doc || !projects) return null;
 
     return (
         <Layout>
-            <RenderBody home={doc.node} projects={projects} meta={meta}/>
+            <RenderBody home={doc.node} projects={filteredProjects} meta={meta}/>
         </Layout>
     )
 }

@@ -41,6 +41,14 @@ const ProjectBody = styled("div")`
             width: 100%;
         }
     }
+
+    h1 {
+        font-size: 1em;
+    }
+
+    img {
+        max-width: 100%;
+    }
 `
 
 const WorkLink = styled(Link)`
