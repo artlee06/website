@@ -174,7 +174,7 @@ const RenderBody = ({ home, projects, meta }) => (
 );
 
 export default ({ data }) => {
-    //Required check for no data being returned
+    //Required check for no data being returned 
     const doc = data.prismic.allHomepages.edges.slice(0, 1).pop();
     const projects = data.prismic.allProjects.edges;
     const filteredProjects = projects.filter((project) => project.node._meta.uid === "petsaver" || project.node._meta.uid === "giftwrap"  );
