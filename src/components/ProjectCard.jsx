@@ -157,6 +157,7 @@ const ProjectCardImageContainer = styled("div")`
     }
 `
 
+//all fields must be filled on prismic!
 const ProjectCard = ({ category, title, description, thumbnail, uid}) => (
     <ProjectCardContainer to={`/work/${uid}`}>
         <ProjectCardContent className="ProjectCardContent">
