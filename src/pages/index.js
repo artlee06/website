@@ -94,6 +94,83 @@ const WorkAction = styled(Link)`
     }
 `
 
+// const RenderBody = ({ home, projects, meta }) => (
+//     <>
+//         <Helmet
+//             title={meta.title}
+//             titleTemplate={`%s | ${meta.title}`}
+//             meta={[
+//                 {
+//                     name: `description`,
+//                     content: meta.description,
+//                 },
+//                 {
+//                     property: `og:title`,
+//                     content: meta.title,
+//                 },
+//                 {
+//                     property: `og:description`,
+//                     content: meta.description,
+//                 },
+//                 {
+//                     property: `og:type`,
+//                     content: `website`,
+//                 },
+//                 {
+//                     name: `twitter:card`,
+//                     content: `summary`,
+//                 },
+//                 {
+//                     name: `twitter:creator`,
+//                     content: meta.author,
+//                 },
+//                 {
+//                     name: `twitter:title`,
+//                     content: meta.title,
+//                 },
+//                 {
+//                     name: `twitter:description`,
+//                     content: meta.description,
+//                 },
+//             ].concat(meta)}
+//         />
+//         <Hero>
+//             <>
+//                 {RichText.render(home.hero_title)}
+//             </>
+//             <a href={home.hero_button_link.url}
+//                target="_blank" rel="noopener noreferrer">
+//                 <Button>
+//                     {RichText.render(home.hero_button_text)}
+//                 </Button>
+//             </a>
+//         </Hero>
+//         <Section>
+//             {RichText.render(home.about_title)}
+//             <About
+//                 bio={home.about_bio}
+//                 socialLinks={home.about_links}
+//             />
+//         </Section>
+//         <Section>
+//             <Skillsets />
+//         </Section>
+//         <Section>
+//             <h1>Projects</h1> 
+//             {projects.map((project, i) => (
+//                 <ProjectCard
+//                     key={i}
+//                     category={project.node.project_category}
+//                     title={project.node.project_title}
+//                     description={project.node.project_preview_description}
+//                     thumbnail={project.node.project_preview_thumbnail}
+//                     uid={project.node._meta.uid}
+//                 />
+//             ))}
+//         </Section>
+//     </>
+// );
+
 const RenderBody = ({ home, projects, meta }) => (
     <>
         <Helmet
@@ -136,24 +213,35 @@ const RenderBody = ({ home, projects, meta }) => (
         />
         <Hero>
             <>
-                {RichText.render(home.hero_title)}
+                <h1>Arthur Lee.</h1>
             </>
-            <a href={home.hero_button_link.url}
+            <a href={home.cv.url}
                target="_blank" rel="noopener noreferrer">
                 <Button>
-                    {RichText.render(home.hero_button_text)}
+                    View my CV
+                </Button>
+            </a>
+            <a href={home.cv.url}
+               target="_blank" rel="noopener noreferrer">
+                <Button>
+                    Contact Me
                 </Button>
             </a>
         </Hero>
         <Section>
-            {RichText.render(home.about_title)}
-            <About
-                bio={home.about_bio}
-                socialLinks={home.about_links}
-            />
+            <h3>Hello 👋</h3>
         </Section>
         <Section>
-            <Skillsets />
+            <h1>Experience & Education</h1>
+        </Section>
+        <Section>
+            <h3>Work Experience</h3>
+        </Section>
+        <Section>
+            <h3>Educational Background</h3>
+        </Section>
+        <Section>
+            <h1>Latest Projects</h1>
         </Section>
         <Section>
             {projects.map((project, i) => (
@@ -166,25 +254,25 @@ const RenderBody = ({ home, projects, meta }) => (
                     uid={project.node._meta.uid}
                 />
             ))}
-            <WorkAction to={"/work"}>
-                See more work <span>&#8594;</span>
-            </WorkAction>
+        </Section>
+        <Section>
+        <h1>Contact Me</h1>
+            {/* contact me component */}
         </Section>
     </>
 );
 
 export default ({ data }) => {
     //Required check for no data being returned 
-    const doc = data.prismic.allHomepages.edges.slice(0, 1).pop();
+    const doc = data.prismic.allHomepagev2s.edges.slice(0, 1).pop();
     const projects = data.prismic.allProjects.edges;
-    const filteredProjects = projects.filter((project) => project.node._meta.uid === "petsaver" || project.node._meta.uid === "giftwrap"  );
     const meta = data.site.siteMetadata;
 
     if (!doc || !projects) return null;
 
     return (
         <Layout>
-            <RenderBody home={doc.node} projects={filteredProjects} meta={meta}/>
+            <RenderBody home={doc.node} projects={projects} meta={meta}/>
         </Layout>
     )
 }
@@ -216,6 +304,53 @@ export const query = graphql`
                             about_link
                         }
                     }
+                }
+            }
+            allHomepagev2s {
+                edges {
+                  node {
+                    aboutmebody
+                    designerdescription
+                    developerdescription
+                    educationdescription
+                    aboutmepicture
+                    behance {
+                      ... on PRISMIC__ExternalLink {
+                        _linkType
+                        url
+                      }
+                    }
+                    contactme
+                    cv {
+                      ... on PRISMIC__ExternalLink {
+                        _linkType
+                        url
+                      }
+                    }
+                    github {
+                      ... on PRISMIC__ExternalLink {
+                        _linkType
+                        url
+                      }
+                    }
+                    email {
+                      ... on PRISMIC__ExternalLink {
+                        _linkType
+                        url
+                      }
+                    }
+                    experiencedescription
+                    frameworksdescription
+                    languagesdescription
+                    linkedin {
+                      ... on PRISMIC__ExternalLink {
+                        _linkType
+                        url
+                      }
+                    }
+                    skillsdescription
+                    toolsdescription
+                  }
                 }
             }
             allProjects {

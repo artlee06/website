@@ -27,6 +27,8 @@ module.exports = {
         resolve: 'gatsby-source-prismic-graphql',
         options: {
             // repositoryName: 'prist', // (REQUIRED, replace with your own)
+            path: '/preview',
+            previews: true,
             repositoryName: 'websiteArthurLee',
             linkResolver: () => post => `/${post.uid}`,
         }
