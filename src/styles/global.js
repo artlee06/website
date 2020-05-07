@@ -3,6 +3,9 @@ import colors from 'styles/colors';
 import dimensions from 'styles/dimensions';
 
 const globalStyles = css`
+    @import "tailwindcss/base"
+    @import "tailwindcss/components"
+    @import "tailwindcss/utilities"
     html,
     body,
     #root {

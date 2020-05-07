@@ -1,11 +1,48 @@
-@import url('https://rsms.me/inter/inter.css');
+// @import url('https://rsms.me/inter/inter.css');
+
+// @import "tailwindcss/base";
+
+// @import "tailwindcss/components";
+
+// @import "tailwindcss/utilities";
+
+@font-face {
+    font-family: "Sofia Pro";
+    font-weight: 400;
+    font-style: normal;
+    src: url("../fonts/SofiaProRegular.ttf");
+}
+
+@font-face {
+    font-family: "Sofia Pro";
+    font-weight: 400;
+    font-style: italic;
+    src: url("../fonts/SofiaProRegularItalic.ttf");
+}
+
+@font-face {
+    font-family: "Sofia Pro";
+    font-weight: 600;
+    font-style: normal;
+    src: url("../fonts/SofiaProSemiBold.ttf");
+}
+
+@font-face {
+    font-family: "Sofia Pro";
+    font-weight: 800;
+    font-style: normal;
+    src: url("../fonts/SofiaProBold.ttf");
+}
 
 html {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Sofia Pro' , sans-serif;
+    font-weight: 800;
 }
+
 
 @supports (font-variation-settings: normal) {
     html {
-        font-family: 'Inter var', sans-serif;
+        font-family: 'Sofia Pro', sans-serif;
     }
 }
+
