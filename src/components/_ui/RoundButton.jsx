@@ -37,10 +37,12 @@ function RoundButton(props) {
     const ButtonContainer = styled.button`
     ${tw`
         text-white
+        text-base
+        font-sans
+        font-semibold
         rounded-full
         overflow-hidden
-        border
-        px-10
+        px-12
         py-3
         `
         };
