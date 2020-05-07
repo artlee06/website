@@ -6,7 +6,7 @@ import { css } from '@emotion/core';
 
 
 function HeroTypography(props) {
-    const { title, weight} = props;
+    const { title, weight } = props;
 
     const HeroType = styled.div`
     h1 {

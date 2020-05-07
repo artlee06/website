@@ -6,6 +6,7 @@ import { graphql, Link } from "gatsby";
 import styled from "@emotion/styled";
 import colors from "styles/colors";
 import dimensions from "styles/dimensions";
+import LandingGraphic from "components/sections/LandingGraphic";
 import RoundButton from "components/_ui/RoundButton";
 import HeroTypography from "components/_ui/HeroTypography";
 import Layout from "components/Layout";
@@ -212,21 +213,7 @@ const RenderBody = ({ home, projects, meta }) => (
                 },
             ].concat(meta)}
         />
-        <Hero>
-            <>
-                <HeroTypography title="Arthur Lee." weight={800}/>
-            </>
-            <RoundButton 
-                onClick={() => window.location.href=home.cv.url} 
-                title="View my CV" 
-                type="purple"
-            />
-            <RoundButton 
-                onClick={() => window.location.href=home.cv.url} 
-                title="Contact Me" 
-                type="blue"
-            />
-        </Hero>
+        <LandingGraphic cvUrl={home.cv.url} githubURL={home.github.url} behanceURL={home.behance.url}/>
         <Section>
             <h3 className="text-gray-100">Hello 👋</h3>
             <p className="text-white"> blehhhhh</p>
