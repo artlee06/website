@@ -7,10 +7,12 @@ import styled from "@emotion/styled";
 import colors from "styles/colors";
 import dimensions from "styles/dimensions";
 import Button from "components/_ui/Button";
+import RoundButton from "components/_ui/RoundButton";
 import About from "components/About";
 import Layout from "components/Layout";
 import Skillsets from "components/Skillsets";
 import ProjectCard from "components/ProjectCard";
+import tw from "tailwind.macro";
 
 const Hero = styled("div")`
     padding-top: 2.5em;
@@ -215,22 +217,22 @@ const RenderBody = ({ home, projects, meta }) => (
             <>
                 <h1>Arthur Lee.</h1>
             </>
-            <a href={home.cv.url}
-               target="_blank" rel="noopener noreferrer">
-                <Button>
-                    View my CV
-                </Button>
-            </a>
-            <a href={home.cv.url}
-               target="_blank" rel="noopener noreferrer">
-                <Button>
-                    Contact Me
-                </Button>
-            </a>
+            <RoundButton 
+                onClick={() => window.location.href=home.cv.url} 
+                title="View my CV" 
+                type="purple"
+            />
+            <RoundButton 
+                onClick={() => window.location.href=home.cv.url} 
+                title="Contact Me" 
+                type="blue"
+            />
         </Hero>
         <Section>
-            <h3>Hello 👋</h3>
+            <h3 className="text-gray-100">Hello 👋</h3>
+            <p className="text-white"> blehhhhh</p>
         </Section>
+        <p className="text-red-200"> blehhhhhh </p>
         <Section>
             <h1>Experience & Education</h1>
         </Section>

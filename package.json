@@ -5,15 +5,13 @@
   "version": "0.1.0",
   "author": "Marguerite Roth | marguerite.io | marguerite.roth@gmail.com",
   "dependencies": {
-    "@emotion/core": "^10.0.10",
-    "@emotion/styled": "^10.0.12",
     "gatsby": "^2.12.0",
     "gatsby-image": "^2.2.20",
     "gatsby-plugin-catch-links": "^2.0.12",
-    "gatsby-plugin-emotion": "^4.1.0",
     "gatsby-plugin-google-analytics": "^2.1.6",
     "gatsby-plugin-manifest": "^2.2.4",
     "gatsby-plugin-offline": "^3.0.8",
+    "gatsby-plugin-postcss": "^2.3.1",
     "gatsby-plugin-react-helmet": "^3.1.8",
     "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-resolve-src": "^2.0.0",
@@ -23,7 +21,9 @@
     "gatsby-source-prismic-graphql": "3.4.0-beta.1",
     "gatsby-transformer-sharp": "^2.2.16",
     "minipass": "2.8.5",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.14.1",
+    "postcss-import": "^12.0.1",
+    "postcss-preset-env": "^6.7.0",
     "prismic-reactjs": "^1.1.1",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
@@ -37,11 +37,18 @@
     "react-router-dom": "^5.0.0",
     "react-router-hash-link": "^1.2.1",
     "sharp": "^0.23.0",
-    "smooth-scroll": "^16.0.3"
+    "smooth-scroll": "^16.0.3",
+    "tailwind.macro": "^1.0.0-alpha.10",
+    "tailwindcss-gradients": "^3.0.0"
   },
   "devDependencies": {
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
+    "gatsby-plugin-emotion": "^4.3.1",
     "gatsby-plugin-remove-trailing-slashes": "^2.0.11",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "tailwindcss": "^1.4.5",
+    "twin.macro": "^1.0.0-alpha.10"
   },
   "keywords": [
     "gatsby",
