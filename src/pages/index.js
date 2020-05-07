@@ -6,13 +6,12 @@ import { graphql, Link } from "gatsby";
 import styled from "@emotion/styled";
 import colors from "styles/colors";
 import dimensions from "styles/dimensions";
-import Button from "components/_ui/Button";
 import RoundButton from "components/_ui/RoundButton";
-import About from "components/About";
+import HeroTypography from "components/_ui/HeroTypography";
 import Layout from "components/Layout";
-import Skillsets from "components/Skillsets";
 import ProjectCard from "components/ProjectCard";
 import tw from "tailwind.macro";
+
 
 const Hero = styled("div")`
     padding-top: 2.5em;
@@ -215,7 +214,7 @@ const RenderBody = ({ home, projects, meta }) => (
         />
         <Hero>
             <>
-                <h1>Arthur Lee.</h1>
+                <HeroTypography title="Arthur Lee." weight={800}/>
             </>
             <RoundButton 
                 onClick={() => window.location.href=home.cv.url} 
@@ -232,9 +231,11 @@ const RenderBody = ({ home, projects, meta }) => (
             <h3 className="text-gray-100">Hello 👋</h3>
             <p className="text-white"> blehhhhh</p>
         </Section>
-        <p className="text-red-200"> blehhhhhh </p>
         <Section>
-            <h1>Experience & Education</h1>
+            <HeroTypography title="Skillsets" weight={600}/>
+        </Section>
+        <Section>
+            <HeroTypography title="Experience & Education" weight={600}/>
         </Section>
         <Section>
             <h3>Work Experience</h3>
@@ -243,7 +244,7 @@ const RenderBody = ({ home, projects, meta }) => (
             <h3>Educational Background</h3>
         </Section>
         <Section>
-            <h1>Latest Projects</h1>
+            <HeroTypography title="Latest Projects" weight={600}/>
         </Section>
         <Section>
             {projects.map((project, i) => (

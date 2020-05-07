@@ -7,9 +7,6 @@ import { css } from '@emotion/core';
 
 function RoundButton(props) {
     const { onClick, title, type } = props;
-    const typeMap = {
-        purple: 'bg-designer-purple'
-    }
 
     const TypeStyling = props => {
         switch (props.type) {
@@ -41,7 +38,6 @@ function RoundButton(props) {
         font-sans
         font-semibold
         rounded-full
-        overflow-hidden
         px-12
         py-3
         `
