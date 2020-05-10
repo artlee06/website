@@ -16,12 +16,14 @@ function HeroTypography(props) {
         -webkit-text-fill-color: transparent;
     }
     ${tw`
-        text-5xl
+        text-lg
+        md:text-5xl
+        lg:text-6xl
         text-center
         font-sans
         `
         };
-`
+    `
     
     return (
         <HeroType>

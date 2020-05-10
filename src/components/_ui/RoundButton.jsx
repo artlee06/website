@@ -38,12 +38,13 @@ function RoundButton(props) {
         font-sans
         font-semibold
         rounded-full
-        px-12
+        px-16
+        sm:px-12
         py-3
         `
         };
     ${TypeStyling};
-    ${'' /* background-image: linear-gradient(to right, #5B2AC5 , #3370EE); */}
+
 `
     
     return (
