@@ -6,8 +6,10 @@ import { graphql, Link } from "gatsby";
 import styled from "@emotion/styled";
 import colors from "styles/colors";
 import dimensions from "styles/dimensions";
+
 import LandingGraphic from "components/sections/LandingGraphic";
-import RoundButton from "components/_ui/RoundButton";
+import AboutSection from "components/sections/AboutSection";
+
 import HeroTypography from "components/_ui/HeroTypography";
 import Layout from "components/Layout";
 import ProjectCard from "components/ProjectCard";
@@ -215,8 +217,7 @@ const RenderBody = ({ home, projects, meta }) => (
         />
         <LandingGraphic cvUrl={home.cv.url} githubURL={home.github.url} behanceURL={home.behance.url}/>
         <Section>
-            <h3 className="text-gray-100">Hello 👋</h3>
-            <p className="text-white"> blehhhhh</p>
+            <AboutSection imageURL={home.aboutmepicture.url} text={RichText.asText(home.aboutmebody)} />
         </Section>
         <Section>
             <HeroTypography title="Skillsets" weight={600}/>
