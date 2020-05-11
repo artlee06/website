@@ -34,6 +34,8 @@ function RoundButton(props) {
                     bg-transparent
                     border-white
                     border-2
+                    hover:text-developer-blue
+                    hover:bg-white
                 `}    
                 `;
         }
@@ -69,7 +71,7 @@ function RoundButton(props) {
 RoundButton.propTypes = {
     onClick: PropTypes.func.isRequired,
     title: PropTypes.string.isRequired,
-    color: PropTypes.string.isRequired
+    type: PropTypes.string.isRequired
 }
 
 export default RoundButton

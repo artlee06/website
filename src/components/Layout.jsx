@@ -10,6 +10,9 @@ import Footer from "components/Footer";
 import Header from "components/Header";
 import 'styles/fonts.scss';
 
+const OverallContainer = styled.div`
+
+`
 const LayoutContainer = styled.div`
     max-width: ${dimensions.maxwidthDesktop}px;
     padding-left: ${dimensions.paddingHorizontalDesktop}em;
@@ -43,16 +46,18 @@ const Layout = ({ children }) => (
             }
         `}
         render={data => (
-            <LayoutContainer className="div">
+            <OverallContainer>
+                 <LayoutContainer className="div">
                 <Global styles={[globalStyles, typeStyles]} />
                 <div className="Layout">
                     <Header />
                     <main className="Layout__content">
                         {children}
                     </main>
-                    <Footer />
                 </div>
-            </LayoutContainer>
+                </LayoutContainer>
+                <Footer type="contact"/>
+            </OverallContainer>
         )}
     />
 )

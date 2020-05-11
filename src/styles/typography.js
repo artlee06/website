@@ -19,7 +19,7 @@ const typeStyles = css`
     h2 {
         margin-bottom: 2rem;
         font-size: 1.9em;
-        line-height: 1.1;
+        line-height: 1.4;
     }
 
     h3 {
