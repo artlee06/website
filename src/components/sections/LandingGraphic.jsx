@@ -46,6 +46,7 @@ const OverallContainer = styled("div")`
 const HeroContainer = styled.div`
     grid-area: middle;
     align-self: center;
+    margin: 1em 0 4em 0;
 
 `
 
