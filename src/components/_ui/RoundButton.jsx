@@ -12,14 +12,22 @@ function RoundButton(props) {
         switch (props.type) {
             case 'purple':
                 return css`
-                ${tw`bg-designer-purple`}    
+                ${tw`
+                    bg-designer-purple
+                    hover:text-designer-purple
+                    hover:bg-transparent
+                    hover:border-designer-purple
+                `}    
                 `;
-                break;
             case 'blue': 
                 return css`
-                ${tw`bg-developer-blue`}    
+                ${tw`
+                    bg-developer-blue
+                    hover:text-developer-blue
+                    hover:bg-transparent
+                    hover:border-developer-blue
+                `}    
                 `;
-                break;
             case 'transparent': 
                 return css`
                 ${tw`
@@ -28,7 +36,6 @@ function RoundButton(props) {
                     border-2
                 `}    
                 `;
-                break;
         }
     }
     const ButtonContainer = styled.button`
@@ -38,12 +45,15 @@ function RoundButton(props) {
         font-sans
         font-semibold
         rounded-full
-        px-12
+        px-16
+        sm:px-12
         py-3
+        border-2
+        border-transparent
         `
         };
     ${TypeStyling};
-    ${'' /* background-image: linear-gradient(to right, #5B2AC5 , #3370EE); */}
+
 `
     
     return (

@@ -6,22 +6,25 @@ import { css } from '@emotion/core';
 
 
 function HeroTypography(props) {
-    const { title, weight} = props;
+    const { title, weight } = props;
 
     const HeroType = styled.div`
-    h1 {
-        font-weight: ${weight};
-        background: linear-gradient(to right, #5B2AC5 , #3370EE);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-    ${tw`
-        text-5xl
-        text-center
-        font-sans
+        h1 {
+            font-weight: ${weight};
+            background: linear-gradient(to right, #5B2AC5 , #3370EE);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+        }
+        ${tw`
+            text-lg
+            md:text-5xl
+            lg:text-6xl
+            text-center
+            font-sans
         `
         };
-`
+    `
     
     return (
         <HeroType>

@@ -3,7 +3,7 @@ const dimensions = {
     //pixels
     maxwidthDesktop: 1100,
     maxwidthTablet: 768,
-    maxwidthMobile: 600,
+    maxwidthMobile: 640,
 
     //ems
     paddingHorizontalDesktop: 4,

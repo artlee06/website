@@ -7,13 +7,13 @@ const typeStyles = css`
         line-height: 1.45;
         font-weight: 800;
 
-        @media(max-width:${dimensions.maxwidthTablet}px) {
+        ${'' /* @media(max-width:${dimensions.maxwidthTablet}px) {
             font-size: 2.25em;
         }
 
         @media(max-width:${dimensions.maxwidthMobile}px) {
             font-size: 2em;
-        }
+        } */}
     }
 
     h2 {

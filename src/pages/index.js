@@ -6,11 +6,16 @@ import { graphql, Link } from "gatsby";
 import styled from "@emotion/styled";
 import colors from "styles/colors";
 import dimensions from "styles/dimensions";
-import RoundButton from "components/_ui/RoundButton";
+
+import LandingGraphic from "components/sections/LandingGraphic";
+import AboutSection from "components/sections/AboutSection";
+
 import HeroTypography from "components/_ui/HeroTypography";
 import Layout from "components/Layout";
 import ProjectCard from "components/ProjectCard";
 import tw from "tailwind.macro";
+
+import SkillsetsSection from "../components/sections/SkillsetsSection";
 
 
 const Hero = styled("div")`
@@ -212,27 +217,22 @@ const RenderBody = ({ home, projects, meta }) => (
                 },
             ].concat(meta)}
         />
-        <Hero>
-            <>
-                <HeroTypography title="Arthur Lee." weight={800}/>
-            </>
-            <RoundButton 
-                onClick={() => window.location.href=home.cv.url} 
-                title="View my CV" 
-                type="purple"
-            />
-            <RoundButton 
-                onClick={() => window.location.href=home.cv.url} 
-                title="Contact Me" 
-                type="blue"
-            />
-        </Hero>
+        <LandingGraphic cvUrl={home.cv.url} githubURL={home.github.url} behanceURL={home.behance.url}/>
         <Section>
-            <h3 className="text-gray-100">Hello 👋</h3>
-            <p className="text-white"> blehhhhh</p>
+            <AboutSection imageURL={home.aboutmepicture.url} text={RichText.asText(home.aboutmebody)} />
         </Section>
         <Section>
             <HeroTypography title="Skillsets" weight={600}/>
+        </Section>
+        <Section>
+            <SkillsetsSection
+                designerDescription={home.designerdescription}
+                skillsDescription={home.skillsdescription}
+                toolsDescription={home.toolsdescription}
+                devDescription={home.developerdescription}
+                frameworksDes={home.frameworksdescription}
+                langDescription={home.languagesdescription}
+            />
         </Section>
         <Section>
             <HeroTypography title="Experience & Education" weight={600}/>
