@@ -14,7 +14,8 @@ import HeroTypography from "components/_ui/HeroTypography";
 import Layout from "components/Layout";
 import ProjectCard from "components/ProjectCard";
 import tw from "tailwind.macro";
-import ExperienceSection from "../components/sections/ExperienceSection";
+
+import SkillsetsSection from "../components/sections/SkillsetsSection";
 
 
 const Hero = styled("div")`
@@ -224,13 +225,7 @@ const RenderBody = ({ home, projects, meta }) => (
             <HeroTypography title="Skillsets" weight={600}/>
         </Section>
         <Section>
-            <ExperienceSection
-                // designerDescription={RichText.asText(home.designerdescription)}
-                // skillsDescription={RichText.asText(home.skillsdescription)}
-                // toolsDescription={RichText.asText(home.toolsdescription)}
-                // devDescription={RichText.asText(home.developerdescription)}
-                // frameworksDes={RichText.asText(home.frameworksdescription)}
-                // langDescription={RichText.asText(home.languagesdescription)}
+            <SkillsetsSection
                 designerDescription={home.designerdescription}
                 skillsDescription={home.skillsdescription}
                 toolsDescription={home.toolsdescription}
