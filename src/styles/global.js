@@ -31,10 +31,10 @@ const globalStyles = css`
         * {
             box-sizing: border-box;
 
-            &::selection {
+            ${'' /* &::selection {
                 background: ${colors.orange500};
                 color: white;
-            }
+            } */}
         }
     }
 

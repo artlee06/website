@@ -9,13 +9,14 @@ import dimensions from "styles/dimensions";
 
 import LandingGraphic from "components/sections/LandingGraphic";
 import AboutSection from "components/sections/AboutSection";
+import SkillsetsSection from "../components/sections/SkillsetsSection";
+import ExperienceSection from "../components/sections/ExperienceSection";
 
 import HeroTypography from "components/_ui/HeroTypography";
 import Layout from "components/Layout";
 import ProjectCard from "components/ProjectCard";
 import tw from "tailwind.macro";
 
-import SkillsetsSection from "../components/sections/SkillsetsSection";
 
 
 const Hero = styled("div")`
@@ -238,10 +239,10 @@ const RenderBody = ({ home, projects, meta }) => (
             <HeroTypography title="Experience & Education" weight={600}/>
         </Section>
         <Section>
-            <h3>Work Experience</h3>
-        </Section>
-        <Section>
-            <h3>Educational Background</h3>
+            <ExperienceSection 
+                experienceDescription={home.experiencedescription}
+                educationDescription={home.educationdescription}
+            />
         </Section>
         <Section>
             <HeroTypography title="Latest Projects" weight={600}/>
@@ -257,10 +258,6 @@ const RenderBody = ({ home, projects, meta }) => (
                     uid={project.node._meta.uid}
                 />
             ))}
-        </Section>
-        <Section>
-        <h1>Contact Me</h1>
-            {/* contact me component */}
         </Section>
     </>
 );
@@ -323,7 +320,6 @@ export const query = graphql`
                         url
                       }
                     }
-                    contactme
                     cv {
                       ... on PRISMIC__ExternalLink {
                         _linkType
@@ -345,12 +341,6 @@ export const query = graphql`
                     experiencedescription
                     frameworksdescription
                     languagesdescription
-                    linkedin {
-                      ... on PRISMIC__ExternalLink {
-                        _linkType
-                        url
-                      }
-                    }
                     skillsdescription
                     toolsdescription
                   }
