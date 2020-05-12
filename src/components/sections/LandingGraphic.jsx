@@ -16,8 +16,7 @@ LandingGraphic.propTypes = {
 
 const OverallContainer = styled("div")`
     padding-top: 5em;
-    padding-bottom: 6em;
-    margin-bottom: 6em;
+    margin-bottom: 5em;
     max-width: 100%;
     display: grid;
     grid-template: 
@@ -25,7 +24,6 @@ const OverallContainer = styled("div")`
         "middle middle middle" 60%
         "bottomCV . bottomContact" 20% 
         / 47% 6% 47%;     
-    ${'' /* grid-template-columns: 47% 6% 47%; */}
     justify-items: center;
 
     @media(max-width:${dimensions.maxwidthMobile}px) {
@@ -132,7 +130,7 @@ function LandingGraphic(props) {
             </CVButtonContainer>
             <ContactButtonContainer>
                 <RoundButton 
-                    onClick={() => window.location.href=cvUrl} 
+                    onClick={() => window.location.href="#contact"} 
                     title="Contact Me" 
                     type="blue"
                 />

@@ -59,7 +59,7 @@ const FooterAuthor = styled("a")`
 //     </FooterContainer>
 // )
 
-const ContactFragment = () => {
+const ContactFragment = ({cvUrl}) => {
     const message = "Like what you see? I'd love to get in touch to discuss potential collaboration and opportunities! Contact me via the following sites or email.";
     const OverallContainer = styled.div`
         max-width: ${dimensions.maxwidthDesktop}px;
@@ -119,18 +119,18 @@ const ContactFragment = () => {
                 <a href="https://www.linkedin.com/in/arthur-lee-ying-kiu/">LinkedIn</a>
                 <a href="mailto:ykarthurlee@gmail.com">Email</a>
             </LinksContainer>
-            <RoundButton type="transparent" title="View my CV" onClick />
+            <RoundButton type="transparent" title="View my CV" onClick={() => window.location.href=cvUrl} />
         </OverallContainer>
     )
 }
 
 function Footer(props){
-    const {type} = props;
+    const { type, cvUrl } = props;
     const showContact = type === "contact";
 
     return (
-        <FooterContainer>
-            {showContact && <ContactFragment />}
+        <FooterContainer id="contact">
+            {showContact && <ContactFragment cvUrl={cvUrl} />}
             <FooterAuthor href="#top">
                 © Arthur Lee 2020 
             </FooterAuthor>
@@ -140,6 +140,7 @@ function Footer(props){
 
 Footer.propTypes = {
     type: PropTypes.string.isRequired,
+    cvUrl: PropTypes.string.isRequired,
 }
 
 export default Footer;

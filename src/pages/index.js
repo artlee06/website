@@ -58,12 +58,12 @@ const Hero = styled("div")`
 `
 
 const Section = styled("div")`
-    margin-bottom: 10em;
+    margin-bottom: 5em;
     display: flex;
     flex-direction: column;
 
     @media(max-width:${dimensions.maxwidthTablet}px) {
-        margin-bottom: 4em;
+        margin-bottom: 3em;
     }
 
     &:last-of-type {
@@ -219,13 +219,11 @@ const RenderBody = ({ home, projects, meta }) => (
             ].concat(meta)}
         />
         <LandingGraphic cvUrl={home.cv.url} githubURL={home.github.url} behanceURL={home.behance.url}/>
-        <Section>
+        <Section id="about">
             <AboutSection imageURL={home.aboutmepicture.url} text={RichText.asText(home.aboutmebody)} />
         </Section>
-        <Section>
+        <Section id="skillsets">
             <HeroTypography title="Skillsets" weight={600}/>
-        </Section>
-        <Section>
             <SkillsetsSection
                 designerDescription={home.designerdescription}
                 skillsDescription={home.skillsdescription}
@@ -235,19 +233,15 @@ const RenderBody = ({ home, projects, meta }) => (
                 langDescription={home.languagesdescription}
             />
         </Section>
-        <Section>
+        <Section id="experience">
             <HeroTypography title="Experience & Education" weight={600}/>
-        </Section>
-        <Section>
             <ExperienceSection 
                 experienceDescription={home.experiencedescription}
                 educationDescription={home.educationdescription}
             />
         </Section>
-        <Section>
+        <Section id="projects">
             <HeroTypography title="Latest Projects" weight={600}/>
-        </Section>
-        <Section>
             {projects.map((project, i) => (
                 <ProjectCard
                     key={i}
@@ -271,7 +265,7 @@ export default ({ data }) => {
     if (!doc || !projects) return null;
 
     return (
-        <Layout>
+        <Layout cvUrl={doc.node.cv.url}>
             <RenderBody home={doc.node} projects={projects} meta={meta}/>
         </Layout>
     )

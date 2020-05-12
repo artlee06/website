@@ -34,7 +34,7 @@ const LayoutContainer = styled.div`
     }
 `;
 
-const Layout = ({ children }) => (
+const Layout = ({ children, cvUrl }) => (
     <StaticQuery
         query={graphql`
             query SiteTitleQuery {
@@ -45,18 +45,19 @@ const Layout = ({ children }) => (
                 }
             }
         `}
+        
         render={data => (
             <OverallContainer>
                  <LayoutContainer className="div">
                 <Global styles={[globalStyles, typeStyles]} />
                 <div className="Layout">
-                    <Header />
+                    <Header cvUrl={cvUrl} />
                     <main className="Layout__content">
                         {children}
                     </main>
                 </div>
                 </LayoutContainer>
-                <Footer type="contact"/>
+                <Footer type="contact" cvUrl={cvUrl}/>
             </OverallContainer>
         )}
     />
@@ -64,6 +65,7 @@ const Layout = ({ children }) => (
 
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
+    cvUrl: PropTypes.string.isRequired,
 }
 
 export default Layout;
