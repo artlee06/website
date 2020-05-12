@@ -62,6 +62,10 @@ const DesignerContainer = styled.a`
     grid-area: topDes;
     justify-self: end;
     align-self: end;
+
+    &:hover {
+        color: #9f78f5;
+    }
 `
 const DeveloperContainer = styled.a`
     ${tw`
@@ -76,6 +80,10 @@ const DeveloperContainer = styled.a`
     grid-area: topDev;
     justify-self: start;
     align-self: end;
+
+    &:hover {
+        color: #67A2FF;
+    }
     
 `
 const Seperator = styled.div`

@@ -5,8 +5,9 @@ import tw from "tailwind.macro";
 import { Link } from "gatsby";
 import HamburgerMenu from "react-hamburger-menu";
 
-import colors from "styles/colors";
 import dimensions from "styles/dimensions";
+
+import {Animated} from "react-animated-css";
 
 
 NavMenu.propTypes = {
@@ -50,7 +51,7 @@ const NavContainer = styled.div`
         `}
 
         &:hover, &:active {
-            background: linear-gradient(to right, #5B2AC5, 20%, #3370EE);
+            background: linear-gradient(to right, #5B2AC5, 40%, #3370EE);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -129,7 +130,9 @@ function NavMenu(props) {
     const {isOpen, handleClick, cvUrl} = props;
     return (
         <div>
-            {isOpen && <MenuDisplay cvUrl={cvUrl}/>}
+            {isOpen && 
+                <MenuDisplay cvUrl={cvUrl} /> 
+            }
             <ButtonWrapper>
                 <HamburgerMenu 
                     isOpen={isOpen}

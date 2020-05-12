@@ -10,10 +10,12 @@ function ExperienceSection(props) {
 
     const OverallContainer = styled("div")`
         max-width: 100%;
+        margin-top: 4em;
 
 
         @media(max-width:${dimensions.maxwidthMobile}px) {
             padding-top: 0em;
+            margin-top: 2em;
         }
 
         h2, h4 {

@@ -242,6 +242,8 @@ const RenderBody = ({ home, projects, meta }) => (
         </Section>
         <Section id="projects">
             <HeroTypography title="Latest Projects" weight={600}/>
+        </Section>
+            <Section>
             {projects.map((project, i) => (
                 <ProjectCard
                     key={i}

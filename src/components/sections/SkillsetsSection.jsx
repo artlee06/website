@@ -13,6 +13,7 @@ function SkillsetsSection(props) {
 
     const OverallContainer = styled("div")`
         max-width: 100%;
+        margin-top: 2em;
         ${tw`
             flex
             flex-row
