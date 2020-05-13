@@ -57,6 +57,7 @@ const DesignerContainer = styled.a`
         font-bold
         text-designer-purple
         no-underline
+        cursor-pointer
         `
         };
     grid-area: topDes;
@@ -75,6 +76,7 @@ const DeveloperContainer = styled.a`
         font-bold
         text-developer-blue
         no-underline
+        cursor-pointer
         `
         };
     grid-area: topDev;

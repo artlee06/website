@@ -26,6 +26,7 @@ const OverallContainer = styled("div")`
         flex
         flex-row
         justify-between
+        z-10
 
 
         bg-white
@@ -108,7 +109,7 @@ const ButtonWrapper = styled.div`
         fixed
         w-full
         bg-white
-        z-10
+        z-20
         pl-4
     `}
 
@@ -118,7 +119,7 @@ const ButtonWrapper = styled.div`
             fixed
             w-full
             bg-white
-            z-10
+            z-20
             pl-0
             sm:pl-4
         `}  

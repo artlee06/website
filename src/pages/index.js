@@ -63,6 +63,7 @@ const Section = styled("div")`
     flex-direction: column;
 
     @media(max-width:${dimensions.maxwidthTablet}px) {
+        margin-top: 6em;
         margin-bottom: 3em;
     }
 

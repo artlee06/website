@@ -68,11 +68,13 @@ const ContactFragment = ({cvUrl}) => {
         margin: 0 auto;
 
         @media(max-width: ${dimensions.maxwidthTablet}px) {
+            max-width: 100%;
             padding-left: ${dimensions.paddingHorizontalTablet}em;
             padding-right: ${dimensions.paddingHorizontalTablet}em;
         }
 
         @media(max-width: ${dimensions.maxwidthMobile}px) {
+            max-width: 100%;
             padding-left: ${dimensions.paddingHorizontalMobile}em;
             padding-right: ${dimensions.paddingHorizontalMobile}em;
         }
@@ -84,8 +86,11 @@ const ContactFragment = ({cvUrl}) => {
     `
     const MessageContainer = styled.h2`
         ${tw`
-            text-white
             font-semibold
+            text-white
+            text-center
+            text-xl
+            sm:text-3xl
         `}
     `
 
@@ -104,6 +109,10 @@ const ContactFragment = ({cvUrl}) => {
 
             &:hover {
                 text-decoration: underline;
+            }
+
+            @media(max-width: ${dimensions.maxwidthMobile}px) {
+                padding: 0 1rem 0 1rem;
             }
         }
     `

@@ -19,7 +19,6 @@ function HeroTypography(props) {
         ${tw`
             text-lg
             sm:text-4xl
-            md:text-5xl
             lg:text-6xl
             text-center
             font-sans
