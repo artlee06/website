@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
+import tw from "tailwind.macro";
 import styled from "@emotion/styled";
 import colors from "styles/colors";
 import dimensions from "styles/dimensions";
@@ -13,6 +14,7 @@ const HeaderContainer = styled("div")`
         padding-top: 1em;
         padding-bottom: 1em;
     }
+
 `
 
 const HeaderContent = styled("div")`
@@ -23,6 +25,9 @@ const HeaderContent = styled("div")`
             width: 40px;
         }
     }
+    ${tw`
+        items-center
+    `}
 `
 
 const HeaderLinks = styled("div")`

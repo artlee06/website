@@ -7,8 +7,6 @@ import HamburgerMenu from "react-hamburger-menu";
 
 import dimensions from "styles/dimensions";
 
-import {Animated} from "react-animated-css";
-
 
 NavMenu.propTypes = {
     isOpen: PropTypes.bool.isRequired,
@@ -30,8 +28,15 @@ const OverallContainer = styled("div")`
 
 
         bg-white
-
     `}
+
+    @media(max-width: ${dimensions.maxwidthMobile}px) {
+        ${tw`
+            flex-col
+            items-start
+        `}
+    }
+
 `
 
 const NavContainer = styled.div`
@@ -56,6 +61,22 @@ const NavContainer = styled.div`
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
+        @media(max-width: ${dimensions.maxwidthMobile}px) {
+            ${tw`
+                text-5xl
+                text-left
+                ml-4
+            `}
+        }
+    }
+
+    @media(max-width: ${dimensions.maxwidthMobile}px) {
+            ${tw`
+                pr-0
+                ml-4
+                mb-4
+            `}
     }
 
 `
@@ -77,7 +98,43 @@ const LinksContainer = styled.div`
             my-4
         `}
 
+        @media(max-width: ${dimensions.maxwidthMobile}px) {
+            ${tw`
+                text-md
+                text-left
+                my-0
+            `}
+        }
+
     }
+
+    @media(max-width: ${dimensions.maxwidthMobile}px) {
+        ${tw`
+            pl-0
+            ml-8
+            mt-8
+        `}
+    }
+`
+
+const ButtonWrapper = styled.div`
+    ${tw`
+        cursor-pointer
+        bg-white
+        z-40
+        p-4
+        rounded-full
+        fixed
+    `}
+    top: 2.5em;
+    right: 2em;
+
+
+    @media(max-width:${dimensions.maxwidthMobile}px) {
+        top: 1em;
+        right: 1em;  
+    }
+
 `
 
 const MenuDisplay = ({cvUrl}) => {
@@ -92,7 +149,7 @@ const MenuDisplay = ({cvUrl}) => {
             </LinksContainer>
             <NavContainer>
                 <Link to="/">Home</Link>
-                <Link to="#about">About Me</Link>
+                <Link to="#skillsets">Skillsets</Link>
                 <Link to="#experience">Experience</Link>
                 <Link to="#projects">Projects</Link>
                 <Link to="#contact">Contact</Link>
@@ -102,30 +159,6 @@ const MenuDisplay = ({cvUrl}) => {
     );
 }
 
-
-const ButtonWrapper = styled.div`
-    ${tw`
-        cursor-pointer
-        fixed
-        w-full
-        bg-white
-        z-20
-        pl-4
-    `}
-
-    @media(max-width:${dimensions.maxwidthMobile}px) {
-        ${tw`
-            cursor-pointer
-            fixed
-            w-full
-            bg-white
-            z-20
-            pl-0
-            sm:pl-4
-        `}  
-    }
-
-`
 
 function NavMenu(props) {
     const {isOpen, handleClick, cvUrl} = props;
@@ -143,7 +176,7 @@ function NavMenu(props) {
                     strokeWidth={2}
                     rotate={0}
                     color='black'
-                    borderRadius={0}
+                    borderRadius={20}
                     animationDuration={0.5}
                 />
             </ButtonWrapper>

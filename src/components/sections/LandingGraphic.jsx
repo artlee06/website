@@ -29,14 +29,6 @@ const RegularDisplayContainer = styled("div")`
     justify-items: center;
 
     @media(max-width:${dimensions.maxwidthMobile}px) {
-       ${'' /* padding-top: 0em;
-       margin-bottom: 3em;
-       grid-template: 
-        "topDes topSep topDev" 22%
-        "middle middle middle" 44%
-        "bottomCV bottomCV bottomCV" 22% 
-        "bottomContact bottomContact bottomContact" 22% 
-        / 47% 6% 47%; */}
         display: none;
     }
 
@@ -149,18 +141,37 @@ const MobileDisplayContainer = styled.div`
         p {
             ${tw`
                 text-base
-            `}
+            `}   
+            
+            a#designer {
+                ${tw`
+                    font-semibold
+                    no-underline
+                    text-designer-purple
+                `}
+                
+            }
+
+            a#developer {
+                ${tw`
+                    font-semibold
+                    no-underline
+                    text-developer-blue
+                `}
+            }         
         }
     }   
 `
 
-const FindOutMore = styled.div`
+const FindOutMore = styled.a`
     ${tw`
         flex
         flex-row
         self-end
         mt-6
         items-center
+        no-underline
+        text-black
     `}
     
     p {
@@ -201,7 +212,9 @@ const MobileDisplayFragment = ({cvUrl, githubURL, behanceURL, aboutText}) => {
         <MobileDisplayContainer>
             <h1>Design</h1>
             <h1>Technologist</h1>
-            <p>{aboutText}</p>
+            <p>
+                I’m Arthur, an aspiring <a href={behanceURL} id="designer">designer</a> / <a href={githubURL} id="developer">developer</a>. I am schooling in NUS as a Computer Science major with a minor in Interactive Media Development. I am currently a Software Engineer Intern at StaffAny.
+            </p>
             <CVButtonContainer>
                 <RoundButton 
                     onClick={() => window.location.href=cvUrl} 
@@ -209,7 +222,7 @@ const MobileDisplayFragment = ({cvUrl, githubURL, behanceURL, aboutText}) => {
                     type="purple"
                 />
             </CVButtonContainer>
-            <FindOutMore> 
+            <FindOutMore href="#skillsets"> 
                 <p>or, find out more </p>
                 <FontAwesomeIcon icon={faArrowAltCircleDown} />
             </FindOutMore>
