@@ -9,11 +9,20 @@ import NavMenu from "components/_ui/NavMenu";
 const HeaderContainer = styled("div")`
     padding-top: 3em;
     padding-bottom: 3em;
+    @media(max-width: ${dimensions.maxwidthMobile}px) {
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
 `
 
 const HeaderContent = styled("div")`
     display: flex;
     justify-content: space-between;
+    @media(max-width: ${dimensions.maxwidthMobile}px) {
+        svg {
+            width: 40px;
+        }
+    }
 `
 
 const HeaderLinks = styled("div")`
@@ -30,6 +39,9 @@ const HeaderLinks = styled("div")`
 
     @media(max-width: ${dimensions.maxwidthMobile}px) {
         grid-gap: 2.5em;
+        svg {
+            width: 40px;
+        }
     }
 
     a {
@@ -43,6 +55,8 @@ const HeaderLinks = styled("div")`
         padding-top: 0.5em;
         display: block;
         position: relative;
+
+        
 
         &:after {
             position: absolute;
