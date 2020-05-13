@@ -219,10 +219,12 @@ const RenderBody = ({ home, projects, meta }) => (
                 },
             ].concat(meta)}
         />
-        <LandingGraphic cvUrl={home.cv.url} githubURL={home.github.url} behanceURL={home.behance.url} aboutText={RichText.asText(home.aboutmebody)}/>
-        <Section id="about">
-            <AboutSection imageURL={home.aboutmepicture.url} text={RichText.asText(home.aboutmebody)} />
-        </Section>
+        <div id="home">
+            <LandingGraphic cvUrl={home.cv.url} githubURL={home.github.url} behanceURL={home.behance.url} aboutText={RichText.asText(home.aboutmebody)}/>
+            <Section>
+                <AboutSection imageURL={home.aboutmepicture.url} text={RichText.asText(home.aboutmebody)} />
+            </Section>
+        </div>
         <Section id="skillsets">
             <HeroTypography title="Skillsets" weight={600}/>
             <SkillsetsSection

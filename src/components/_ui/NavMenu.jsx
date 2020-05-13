@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import styled from "@emotion/styled";
 import tw from "tailwind.macro";
@@ -69,6 +69,15 @@ const NavContainer = styled.div`
                 ml-4
             `}
         }
+
+        .active {
+            a {
+                background: linear-gradient(to right, #5B2AC5, 40%, #3370EE);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            color: blue;
+        }
     }
 
     @media(max-width: ${dimensions.maxwidthMobile}px) {
@@ -137,7 +146,16 @@ const ButtonWrapper = styled.div`
 
 `
 
-const MenuDisplay = ({cvUrl}) => {
+const activeStyle = {
+    background: "linear-gradient(to right, #5B2AC5, 40%, #3370EE)",
+    webkitBackgroundClip: "text",
+    webkitTextFillColor: "transparent"
+}
+
+const MenuDisplay = ({cvUrl, isSectionInView}) => {
+    
+    const {home, skillsets, experience, projects, contact} = isSectionInView;
+
     return (
         <OverallContainer>
             <LinksContainer>
@@ -147,25 +165,77 @@ const MenuDisplay = ({cvUrl}) => {
                 <a href="mailto:ykarthurlee@gmail.com">Email</a>
                 <a href={cvUrl}>CV</a>
             </LinksContainer>
-            <NavContainer>
-                <Link to="/">Home</Link>
-                <Link to="#skillsets">Skillsets</Link>
-                <Link to="#experience">Experience</Link>
-                <Link to="#projects">Projects</Link>
-                <Link to="#contact">Contact</Link>
-            </NavContainer>
-
+                <NavContainer>
+                    <Link to="/" style={home ? activeStyle : null}>Home</Link>
+                    <Link to="#skillsets" style={skillsets ? activeStyle : null}>Skillsets</Link>
+                    <Link to="#experience" style={experience ? activeStyle : null}>Experience</Link>
+                    <Link to="#projects" style={projects ? activeStyle : null}>Projects</Link>
+                    <Link to="#contact" style={contact ? activeStyle : null}>Contact</Link>
+                </NavContainer>
         </OverallContainer>
     );
+}
+
+const notableElementIds = ["home", "skillsets", "experience", "projects", "contact"];
+
+const isInView = (element) => {
+    if (element === null) {
+        return false;
+    } else {
+        const rect = element.getBoundingClientRect(); // gets the element's bounding area including padding
+        return rect.top >= 0 && rect.bottom <= window.innerHeight;  
+    }
+}
+
+const getElement = (id) => {
+    return document.getElementById(id);
+}
+
+const allElements = notableElementIds.map((id) => {
+    return {
+        id: id, 
+        element: getElement(id)
+    };
+});
+
+const handleScroll = (setState) => {
+    allElements.forEach((object) => {
+        const id = object.id;
+        const element = object.element;
+        setState((inViewState) => {  
+            const newState = {
+                ...inViewState
+            };
+            newState[id] = isInView(element);
+            console.log(newState);
+            return newState;
+        });
+        console.log(id + " " + isInView(element));
+    });
+}
+
+const initialState = {
+    home: true,
+    skillsets: false,
+    experience: false,
+    projects: false,
+    contact: false,
 }
 
 
 function NavMenu(props) {
     const {isOpen, handleClick, cvUrl} = props;
+
+    const [isSectionInView, setInView] = useState(initialState);
+
+    useEffect(() => {
+        window.addEventListener("scroll", () => handleScroll(setInView));
+    }, []);
+
     return (
         <div>
             {isOpen && 
-                <MenuDisplay cvUrl={cvUrl} /> 
+                <MenuDisplay cvUrl={cvUrl} isSectionInView={isSectionInView} /> 
             }
             <ButtonWrapper>
                 <HamburgerMenu 
