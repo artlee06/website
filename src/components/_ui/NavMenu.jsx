@@ -52,7 +52,7 @@ const NavContainer = styled.div`
             no-underline
             text-6xl
             font-bold
-            text-gray-400
+            text-black
             text-right
         `}
 
@@ -68,15 +68,6 @@ const NavContainer = styled.div`
                 text-left
                 ml-4
             `}
-        }
-
-        .active {
-            a {
-                background: linear-gradient(to right, #5B2AC5, 40%, #3370EE);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
-            color: blue;
         }
     }
 
