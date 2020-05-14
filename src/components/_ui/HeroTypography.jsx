@@ -45,7 +45,8 @@ function HeroTypography(props) {
             margin: 0;
         }
         ${tw`
-            text-3xl
+            text-lg
+            xs:text-2xl
             sm:text-4xl
             md:text-5xl
             lg:text-6xl

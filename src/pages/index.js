@@ -238,9 +238,9 @@ const RenderBody = ({ home, projects, meta }) => (
         </Section>
         <Section id="experience">
             <HeroTypography 
-                title="Experience & Education" 
+                title="Experience" 
                 weight={600}
-                type="two" 
+                type="one" 
                 lineOne="Experience" 
                 lineTwo="/ Education"
             />

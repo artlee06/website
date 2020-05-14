@@ -211,7 +211,7 @@ const MobileDisplayFragment = ({cvUrl, githubURL, behanceURL, aboutText}) => {
     return (
         <MobileDisplayContainer>
             <h1>Design</h1>
-            <h1>Technologist</h1>
+            <h1>Technologist.</h1>
             <p>
                 I’m Arthur, an aspiring <a href={behanceURL} id="designer">designer</a> / <a href={githubURL} id="developer">developer</a>. I am schooling in NUS as a Computer Science major with a minor in Interactive Media Development. I am currently a Software Engineer Intern at StaffAny.
             </p>
