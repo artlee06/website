@@ -3,6 +3,9 @@ import colors from 'styles/colors';
 import dimensions from 'styles/dimensions';
 
 const globalStyles = css`
+    @import "tailwindcss/base"
+    @import "tailwindcss/components"
+    @import "tailwindcss/utilities"
     html,
     body,
     #root {
@@ -28,10 +31,10 @@ const globalStyles = css`
         * {
             box-sizing: border-box;
 
-            &::selection {
+            ${'' /* &::selection {
                 background: ${colors.orange500};
                 color: white;
-            }
+            } */}
         }
     }
 
@@ -45,6 +48,8 @@ const globalStyles = css`
         height: 100%;
         min-height: 100% !important;
     }
+
+
 `
 
 export default globalStyles;

@@ -10,6 +10,9 @@ import Footer from "components/Footer";
 import Header from "components/Header";
 import 'styles/fonts.scss';
 
+const OverallContainer = styled.div`
+
+`
 const LayoutContainer = styled.div`
     max-width: ${dimensions.maxwidthDesktop}px;
     padding-left: ${dimensions.paddingHorizontalDesktop}em;
@@ -31,7 +34,7 @@ const LayoutContainer = styled.div`
     }
 `;
 
-const Layout = ({ children }) => (
+const Layout = ({ children, cvUrl }) => (
     <StaticQuery
         query={graphql`
             query SiteTitleQuery {
@@ -42,23 +45,27 @@ const Layout = ({ children }) => (
                 }
             }
         `}
+        
         render={data => (
-            <LayoutContainer className="div">
+            <OverallContainer>
+                 <LayoutContainer className="div">
                 <Global styles={[globalStyles, typeStyles]} />
                 <div className="Layout">
-                    <Header />
+                    <Header cvUrl={cvUrl} />
                     <main className="Layout__content">
                         {children}
                     </main>
-                    <Footer />
                 </div>
-            </LayoutContainer>
+                </LayoutContainer>
+                <Footer type="contact" cvUrl={cvUrl}/>
+            </OverallContainer>
         )}
     />
 )
 
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
+    cvUrl: PropTypes.string.isRequired,
 }
 
 export default Layout;
