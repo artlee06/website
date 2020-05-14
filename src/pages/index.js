@@ -226,7 +226,7 @@ const RenderBody = ({ home, projects, meta }) => (
             </Section>
         </div>
         <Section id="skillsets">
-            <HeroTypography title="Skillsets" weight={600}/>
+            <HeroTypography title="Skillsets" weight={600} type="one"/>
             <SkillsetsSection
                 designerDescription={home.designerdescription}
                 skillsDescription={home.skillsdescription}
@@ -237,14 +237,26 @@ const RenderBody = ({ home, projects, meta }) => (
             />
         </Section>
         <Section id="experience">
-            <HeroTypography title="Experience & Education" weight={600}/>
+            <HeroTypography 
+                title="Experience & Education" 
+                weight={600}
+                type="two" 
+                lineOne="Experience" 
+                lineTwo="/ Education"
+            />
             <ExperienceSection 
                 experienceDescription={home.experiencedescription}
                 educationDescription={home.educationdescription}
             />
         </Section>
         <Section id="projects">
-            <HeroTypography title="Latest Projects" weight={600}/>
+            <HeroTypography 
+                title="Latest Projects" 
+                weight={600} 
+                type="two" 
+                lineOne="Latest" 
+                lineTwo="Projects"
+            />
         </Section>
             <Section>
             {projects.map((project, i) => (

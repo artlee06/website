@@ -187,7 +187,7 @@ const RegularDisplayFragment = ({cvUrl, githubURL, behanceURL}) => {
             <Seperator>|</Seperator>
             <DeveloperContainer href={githubURL}> Developer</DeveloperContainer>
             <HeroContainer>
-                <HeroTypography title="Arthur Lee." weight={800}/>
+                <HeroTypography title="Arthur Lee." weight={800} type="one"/>
             </HeroContainer>
             <CVButtonContainer>
                 <RoundButton 

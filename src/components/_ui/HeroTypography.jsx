@@ -5,8 +5,36 @@ import tw from "tailwind.macro";
 import { css } from '@emotion/core';
 
 
+const TwoLineContainer = styled.div`
+    ${tw`
+        flex
+        flex-col
+    `}
+`
+const LineOneContainer = styled.h1`
+    ${tw`
+        self-start
+    `}
+
+`
+const LineTwoContainer = styled.h1`
+    ${tw`
+        self-end
+    `}
+`
+
+const TwoLineFragment = ({lineOne, lineTwo}) => {
+    return (
+        <TwoLineContainer>
+            <LineOneContainer>{lineOne}</LineOneContainer>
+            <LineTwoContainer>{lineTwo}</LineTwoContainer>
+        </TwoLineContainer>
+    );
+}
+
 function HeroTypography(props) {
-    const { title, weight } = props;
+    const { title, weight, type, lineOne, lineTwo } = props;
+    const isTypeOneLine = type === "one";
 
     const HeroType = styled.div`
         h1 {
@@ -17,8 +45,9 @@ function HeroTypography(props) {
             margin: 0;
         }
         ${tw`
-            text-lg
+            text-3xl
             sm:text-4xl
+            md:text-5xl
             lg:text-6xl
             text-center
             font-sans
@@ -28,15 +57,28 @@ function HeroTypography(props) {
     
     return (
         <HeroType>
-            <h1>{title}</h1>
+            {isTypeOneLine 
+                ? <h1>{title}</h1>
+                : <TwoLineFragment lineOne={lineOne} lineTwo={lineTwo}/>
+            }
         </HeroType>
     )
+}
+
+HeroTypography.defaultProps = {
+    lineOne: "",
+    lineTwo: ""
 }
 
 HeroTypography.propTypes = {
     title: PropTypes.string.isRequired,
     weight: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    lineOne: PropTypes.string,
+    lineTwo:PropTypes.string,
 }
+
+
 
 export default HeroTypography
 
