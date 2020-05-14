@@ -53,14 +53,22 @@ const DesignerContainer = styled.a`
         text-designer-purple
         no-underline
         cursor-pointer
+        px-2
         `
         };
     grid-area: topDes;
     justify-self: end;
     align-self: end;
 
+    background: linear-gradient(to bottom, #5B2AC5, 0%, #5B2AC5);
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 2px 0px;
+    transition: background-size .2s;
+
     &:hover {
-        color: #9f78f5;
+        color: #fff;
+        background-size: 2px 50px;
     }
 `
 const DeveloperContainer = styled.a`
@@ -72,14 +80,22 @@ const DeveloperContainer = styled.a`
         text-developer-blue
         no-underline
         cursor-pointer
+        px-2
         `
         };
     grid-area: topDev;
     justify-self: start;
     align-self: end;
 
+    background: linear-gradient(to bottom, #3370EE, 0%, #3370EE);
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 2px 0px;
+    transition: background-size .2s;
+
     &:hover {
-        color: #67A2FF;
+        color: #fff;
+        background-size: 2px 50px;
     }
     
 `

@@ -1,11 +1,15 @@
 export const isInView = (ele) => {
-    const { top, bottom } = ele.getBoundingClientRect();
-    const vHeight = (window.innerHeight || document.documentElement.clientHeight);
-  
-    return (
-      (top > 0 || bottom > 0) &&
-      top < vHeight
-    );
+    if (ele === null) {
+        return false;
+    } else {
+        const { top, bottom } = ele.getBoundingClientRect();
+        const vHeight = (window.innerHeight || document.documentElement.clientHeight);
+    
+        return (
+        (top > 0 || bottom > 0) &&
+        top < vHeight
+        );
+    }
   }
 
 export const getElement = (id) => {

@@ -47,7 +47,7 @@ const OverallContainer = styled("div")`
     @keyframes scaleIn {
         0%   { 
             transform: scale(0.7);
-            opacity: 0;
+            opacity: 0.3;
         }
         100% { 
             transform: scale(1);
@@ -115,6 +115,19 @@ const LinksContainer = styled.div`
             text-black
             my-4
         `}
+        background: linear-gradient(to bottom, #000, 0%, #000);
+        background-position: 0 100%;
+        background-repeat: repeat-x;
+        background-size: 2px 0px;
+        transition: background-size .2s;
+
+        &:hover {
+            text-decoration: none;
+            font-weight: 600;
+            color: #fff;
+            background-size: 2px 50px;
+        }
+
 
         @media(max-width: ${dimensions.maxwidthMobile}px) {
             ${tw`
