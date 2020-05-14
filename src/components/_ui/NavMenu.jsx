@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import tw from "tailwind.macro";
 import { Link } from "gatsby";
 import HamburgerMenu from "react-hamburger-menu";
-import {isInView, getElement, handleScroll} from "../../utils/scrollspy";
+import {handleScroll} from "../../utils/scrollspy";
 
 
 import dimensions from "styles/dimensions";
@@ -203,13 +203,6 @@ const MenuDisplay = ({cvUrl, isSectionInView}) => {
 
 const notableElementIds = ["home", "skillsets", "experience", "projects", "contact"];
 
-const allElements = notableElementIds.map((id) => {
-    return {
-        id: id, 
-        element: getElement(id)
-    };
-});
-
 const initialState = {
     home: true,
     skillsets: false,
@@ -218,19 +211,33 @@ const initialState = {
     contact: false,
 }
 
+const documentLoadedState = {
+    documentLoaded: false
+}
+
 
 
 function NavMenu(props) {
     const {isOpen, handleClick, cvUrl} = props;
 
     const [isSectionInView, setInView] = useState(initialState);
+    const [docLoaded, setDocLoad] = useState(documentLoadedState);
+    const {documentLoaded} = docLoaded;
 
     useEffect(() => {
-        window.addEventListener("scroll", () => handleScroll(setInView, notableElementIds));
-        return () => {
-            window.removeEventListener('scroll', () => {});
-        }
+        setDocLoad({documentLoaded: true});
     }, []);
+
+    useEffect(() => enqueueEventHandling(), [documentLoaded]);
+
+    const enqueueEventHandling = () => {
+        if (documentLoaded) {
+            window.addEventListener("scroll", () => handleScroll(setInView, notableElementIds));
+            return () => {
+                window.removeEventListener('scroll', () => {});
+            }
+        }
+    }
 
     return (
         <div>
