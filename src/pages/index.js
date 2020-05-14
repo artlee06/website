@@ -2,9 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { RichText } from "prismic-reactjs";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import styled from "@emotion/styled";
-import colors from "styles/colors";
 import dimensions from "styles/dimensions";
 
 import LandingGraphic from "components/sections/LandingGraphic";
@@ -129,7 +128,7 @@ const RenderBody = ({ home, projects, meta }) => (
 export default ({ data }) => {
     //Required check for no data being returned 
     const doc = data.prismic.allHomepagev2s.edges.slice(0, 1).pop();
-    const projects = data.prismic.allProjects.edges;
+    const projects = data.prismic.allProjects.edges.reverse();
     const meta = data.site.siteMetadata;
 
     if (!doc || !projects) return null;

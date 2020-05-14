@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from "@emotion/styled";
-import tw from "tailwind.macro";
 import dimensions from "styles/dimensions";
 import { RichText } from "prismic-reactjs";
 
