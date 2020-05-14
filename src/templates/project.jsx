@@ -49,6 +49,11 @@ const ProjectBody = styled("div")`
     img {
         max-width: 100%;
     }
+
+    iframe {
+        width: 100% !important;
+        height: auto;
+    }
 `
 
 const WorkLink = styled(Link)`
