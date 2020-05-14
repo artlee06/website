@@ -82,7 +82,7 @@ const DeveloperContainer = styled.a`
         cursor-pointer
         px-2
         `
-        };
+    };
     grid-area: topDev;
     justify-self: start;
     align-self: end;

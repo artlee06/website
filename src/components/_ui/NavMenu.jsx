@@ -73,6 +73,7 @@ const NavContainer = styled.div`
             text-gray-500
             text-right
         `}
+        
 
         &:hover, &:active {
             background: linear-gradient(to right, #5B2AC5, 40%, #3370EE);

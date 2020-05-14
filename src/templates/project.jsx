@@ -5,7 +5,7 @@ import styled from "@emotion/styled";
 import colors from "styles/colors";
 import { Link, graphql } from 'gatsby';
 import { RichText } from "prismic-reactjs";
-import Button from "components/_ui/Button";
+import RoundButton from "components/_ui/RoundButton";
 import Layout from "components/Layout";
 
 const ProjectHeroContainer = styled("div")`
@@ -110,10 +110,8 @@ const Project = ({ project, meta }) => {
                 )}
                 <ProjectBody>
                     {RichText.render(project.project_description)}
-                    <WorkLink to={"/work"}>
-                        <Button className="Button--secondary">
-                            See other work
-                        </Button>
+                    <WorkLink to={"#projects"}>
+                        <RoundButton title="See other work" type="blue" className="Button--secondary"/>
                     </WorkLink>
                 </ProjectBody>
             </Layout>

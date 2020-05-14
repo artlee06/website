@@ -30,15 +30,18 @@ const FooterAuthor = styled("a")`
     align-items: center;
     text-decoration: none;
     margin-top: 1em;
+    transition: background-size 0.2s;
+    background: linear-gradient(to bottom, #fff, 0%, #fff);
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 2px 0px;
+    transition: background-size .2s;
 
      &:hover {
-         color: ${colors.blue900};
+        color: #5B2AC5;
+        background-size: 2px 50px;
     }
 
-    @keyframes rotate {
-        from {transform: rotate(0deg);}
-        to {transform: rotate(360deg);}
-    }
 `
 
 
