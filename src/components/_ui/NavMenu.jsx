@@ -70,7 +70,7 @@ const NavContainer = styled.div`
             no-underline
             text-6xl
             font-bold
-            text-black
+            text-gray-500
             text-right
         `}
 
@@ -213,7 +213,6 @@ function NavMenu(props) {
 
     useEffect(() => {
         window.addEventListener("scroll", () => handleScroll(setInView, notableElementIds));
-        // returned function will be called on component unmount 
         return () => {
             window.removeEventListener('scroll', () => {});
         }

@@ -33,13 +33,6 @@ const FooterAuthor = styled("a")`
 
      &:hover {
          color: ${colors.blue900};
-
-        .FooterSpooch {
-            animation-name: rotate;
-            animation-duration: 1.5s;
-            animation-iteration-count: infinite;
-            animation-timing-function: linear;
-        }
     }
 
     @keyframes rotate {
@@ -48,16 +41,6 @@ const FooterAuthor = styled("a")`
     }
 `
 
-// const Footer = () => (
-//     <FooterContainer>
-//         <Link to="/">
-//             <Logo />
-//         </Link>
-//         <FooterAuthor href="mailto:ykarthurlee@gmail.com">
-//             © 2020 - Arthur Lee
-//         </FooterAuthor>
-//     </FooterContainer>
-// )
 
 const ContactFragment = ({cvUrl}) => {
     const message = "Like what you see? I'd love to get in touch to discuss potential collaboration and opportunities! Contact me via the following sites or email.";
@@ -105,14 +88,24 @@ const ContactFragment = ({cvUrl}) => {
         a {
             color: white;
             text-decoration: none;
-            padding: 0 2rem 0 2rem;
+            padding: 0 0.25em 0 0.25em;
+            margin:  0 0.5em 0 0.5em;
+            background: linear-gradient(to bottom, #fff, 0%, #fff);
+            background-position: 0 100%;
+            background-repeat: repeat-x;
+            background-size: 2px 0px;
+            transition: background-size .2s;
 
             &:hover {
-                text-decoration: underline;
+                text-decoration: none;
+                font-weight: 600;
+                color: #5B2AC5;
+                background-size: 2px 50px;
             }
 
             @media(max-width: ${dimensions.maxwidthMobile}px) {
-                padding: 0 1rem 0 1rem;
+                padding: 0 0.25em 0 0.25em;
+                margin:  0 0.25em 0 0.25em;
             }
         }
     `
