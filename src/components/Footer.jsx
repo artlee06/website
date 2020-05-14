@@ -30,36 +30,22 @@ const FooterAuthor = styled("a")`
     align-items: center;
     text-decoration: none;
     margin-top: 1em;
+    transition: background-size 0.2s;
+    background: linear-gradient(to bottom, #fff, 0%, #fff);
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 2px 0px;
+    transition: background-size .2s;
 
      &:hover {
-         color: ${colors.blue900};
-
-        .FooterSpooch {
-            animation-name: rotate;
-            animation-duration: 1.5s;
-            animation-iteration-count: infinite;
-            animation-timing-function: linear;
-        }
+        color: #5B2AC5;
+        background-size: 2px 50px;
     }
 
-    @keyframes rotate {
-        from {transform: rotate(0deg);}
-        to {transform: rotate(360deg);}
-    }
 `
 
-// const Footer = () => (
-//     <FooterContainer>
-//         <Link to="/">
-//             <Logo />
-//         </Link>
-//         <FooterAuthor href="mailto:ykarthurlee@gmail.com">
-//             © 2020 - Arthur Lee
-//         </FooterAuthor>
-//     </FooterContainer>
-// )
 
-const ContactFragment = () => {
+const ContactFragment = ({cvUrl}) => {
     const message = "Like what you see? I'd love to get in touch to discuss potential collaboration and opportunities! Contact me via the following sites or email.";
     const OverallContainer = styled.div`
         max-width: ${dimensions.maxwidthDesktop}px;
@@ -68,11 +54,13 @@ const ContactFragment = () => {
         margin: 0 auto;
 
         @media(max-width: ${dimensions.maxwidthTablet}px) {
+            max-width: 100%;
             padding-left: ${dimensions.paddingHorizontalTablet}em;
             padding-right: ${dimensions.paddingHorizontalTablet}em;
         }
 
         @media(max-width: ${dimensions.maxwidthMobile}px) {
+            max-width: 100%;
             padding-left: ${dimensions.paddingHorizontalMobile}em;
             padding-right: ${dimensions.paddingHorizontalMobile}em;
         }
@@ -84,8 +72,11 @@ const ContactFragment = () => {
     `
     const MessageContainer = styled.h2`
         ${tw`
-            text-white
             font-semibold
+            text-white
+            text-center
+            text-xl
+            sm:text-3xl
         `}
     `
 
@@ -100,10 +91,24 @@ const ContactFragment = () => {
         a {
             color: white;
             text-decoration: none;
-            padding: 0 2rem 0 2rem;
+            padding: 0 0.25em 0 0.25em;
+            margin:  0 0.5em 0 0.5em;
+            background: linear-gradient(to bottom, #fff, 0%, #fff);
+            background-position: 0 100%;
+            background-repeat: repeat-x;
+            background-size: 2px 0px;
+            transition: background-size .2s;
 
             &:hover {
-                text-decoration: underline;
+                text-decoration: none;
+                font-weight: 600;
+                color: #5B2AC5;
+                background-size: 2px 50px;
+            }
+
+            @media(max-width: ${dimensions.maxwidthMobile}px) {
+                padding: 0 0.25em 0 0.25em;
+                margin:  0 0.25em 0 0.25em;
             }
         }
     `
@@ -119,18 +124,18 @@ const ContactFragment = () => {
                 <a href="https://www.linkedin.com/in/arthur-lee-ying-kiu/">LinkedIn</a>
                 <a href="mailto:ykarthurlee@gmail.com">Email</a>
             </LinksContainer>
-            <RoundButton type="transparent" title="View my CV" onClick />
+            <RoundButton type="transparent" title="View my CV" onClick={() => window.location.href=cvUrl} />
         </OverallContainer>
     )
 }
 
 function Footer(props){
-    const {type} = props;
+    const { type, cvUrl } = props;
     const showContact = type === "contact";
 
     return (
-        <FooterContainer>
-            {showContact && <ContactFragment />}
+        <FooterContainer id="contact">
+            {showContact && <ContactFragment cvUrl={cvUrl} />}
             <FooterAuthor href="#top">
                 © Arthur Lee 2020 
             </FooterAuthor>
@@ -140,6 +145,7 @@ function Footer(props){
 
 Footer.propTypes = {
     type: PropTypes.string.isRequired,
+    cvUrl: PropTypes.string.isRequired,
 }
 
 export default Footer;

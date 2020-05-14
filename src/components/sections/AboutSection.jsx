@@ -8,8 +8,7 @@ function AboutSection(props) {
     const { imageURL, text } = props;
     const OverallContainer = styled("div")`
         padding-top: 5em;
-        padding-bottom: 6em;
-        margin-bottom: 6em;
+        margin-bottom: 5em;
         max-width: 100%;
         display: flex;
         flex-direction: row;
@@ -17,9 +16,7 @@ function AboutSection(props) {
         align-items: center;
 
         @media(max-width:${dimensions.maxwidthMobile}px) {
-            padding-top: 0em;
-            margin-bottom: 3em;
-            flex-direction: column;
+            display: none;
         }
 
         span.helloText, h2 {
@@ -39,7 +36,6 @@ function AboutSection(props) {
         span.helloText {
             font-weight: 800;
         }
-
     `
 
     const TextContainer = styled("div")`

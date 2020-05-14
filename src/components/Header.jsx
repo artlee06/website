@@ -1,18 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "gatsby";
+import tw from "tailwind.macro";
 import styled from "@emotion/styled";
 import colors from "styles/colors";
 import dimensions from "styles/dimensions";
 import Logo from "components/_ui/Logo";
+import NavMenu from "components/_ui/NavMenu";
 
 const HeaderContainer = styled("div")`
     padding-top: 3em;
     padding-bottom: 3em;
+    @media(max-width: ${dimensions.maxwidthMobile}px) {
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
+
 `
 
 const HeaderContent = styled("div")`
     display: flex;
     justify-content: space-between;
+    @media(max-width: ${dimensions.maxwidthMobile}px) {
+        svg {
+            width: 40px;
+        }
+    }
+    ${tw`
+        items-center
+    `}
 `
 
 const HeaderLinks = styled("div")`
@@ -29,6 +44,9 @@ const HeaderLinks = styled("div")`
 
     @media(max-width: ${dimensions.maxwidthMobile}px) {
         grid-gap: 2.5em;
+        svg {
+            width: 40px;
+        }
     }
 
     a {
@@ -42,6 +60,8 @@ const HeaderLinks = styled("div")`
         padding-top: 0.5em;
         display: block;
         position: relative;
+
+        
 
         &:after {
             position: absolute;
@@ -72,29 +92,37 @@ const HeaderLinks = styled("div")`
     }
 `
 
-const Header = () => (
-    <HeaderContainer>
-        <HeaderContent>
-            <Link to="/">
-                <Logo/>
-            </Link>
-            <HeaderLinks>
-                <Link
-                    activeClassName="Link--is-active"
-                    to="/work">
-                    Work
+const initialState = {
+    isMenuOpen: false
+};
+
+const Header = ({cvUrl}) => {
+    const [menuState, setMenu] = useState(initialState);
+    const { isMenuOpen } = menuState;
+
+    const handleClick = () => (
+        setMenu((menuState) => {
+            const copy = {...menuState};
+            const newState = {
+                isMenuOpen: !copy.isMenuOpen
+            }
+            return newState;
+        })
+    );
+
+
+    return (
+        <HeaderContainer>
+            <HeaderContent>
+                <Link to="/">
+                    <Logo/>
                 </Link>
-                <Link
-                    activeClassName="Link--is-active"
-                    to="/experience">
-                    Experience
-                </Link>
-                    {/* <a activeClassName="Link--is-active" href="mailto:ykarthurlee@gmail.com" target="_blank" rel="noopener noreferrer">
-                    Contact
-                    </a> */}
-            </HeaderLinks>
-        </HeaderContent>
-    </HeaderContainer>
-)
+                <NavMenu isOpen={isMenuOpen} handleClick={handleClick} cvUrl={cvUrl}/>
+            </HeaderContent>
+        </HeaderContainer>
+    )
+    
+}
+
 
 export default Header;

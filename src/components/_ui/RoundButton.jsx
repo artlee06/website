@@ -12,51 +12,56 @@ function RoundButton(props) {
         switch (props.type) {
             case 'purple':
                 return css`
-                ${tw`
-                    bg-designer-purple
-                    hover:text-designer-purple
-                    hover:bg-transparent
-                    hover:border-designer-purple
-                `}    
+                    ${tw`
+                        hover:bg-designer-purple
+                        hover:text-white
+                        hover:border-transparent
+                        border-designer-purple
+                        text-designer-purple
+                    `}    
                 `;
             case 'blue': 
                 return css`
-                ${tw`
-                    bg-developer-blue
-                    hover:text-developer-blue
-                    hover:bg-transparent
-                    hover:border-developer-blue
-                `}    
+                    ${tw`
+                        hover:bg-cover
+                        hover:bg-developer-blue
+                        hover:text-white
+                        hover:border-transparent
+                        border-developer-blue
+                        text-developer-blue
+                    `}    
                 `;
             case 'transparent': 
                 return css`
-                ${tw`
-                    bg-transparent
-                    border-white
-                    border-2
-                    hover:text-developer-blue
-                    hover:bg-white
-                `}    
+                    ${tw`
+                        hover:text-developer-blue
+                        hover:bg-white
+                        border-white
+                        text-white                    
+                    `}    
                 `;
         }
     }
     const ButtonContainer = styled.button`
-    ${tw`
-        text-white
-        text-base
-        font-sans
-        font-semibold
-        rounded-full
-        px-16
-        sm:px-12
-        py-3
-        border-2
-        border-transparent
-        `
-        };
-    ${TypeStyling};
+        ${tw`
+            bg-transparent
+            text-base
+            font-sans
+            font-semibold
+            rounded-full
+            px-16
+            sm:px-12
+            py-3
+            border-2
+            cursor-pointer
+            `
+            };
+        ${TypeStyling};
 
-`
+        transition: background-color 0.3s;
+        transition-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+
+    `   
     
     return (
         <ButtonContainer

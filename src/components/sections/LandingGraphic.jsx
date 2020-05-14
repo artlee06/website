@@ -4,20 +4,21 @@ import RoundButton from "components/_ui/RoundButton";
 import HeroTypography from "components/_ui/HeroTypography";
 import styled from "@emotion/styled";
 import tw from "tailwind.macro";
-import colors from "styles/colors";
 import dimensions from "styles/dimensions";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faArrowAltCircleDown } from "@fortawesome/free-solid-svg-icons"
 
 
 LandingGraphic.propTypes = {
     cvUrl: PropTypes.string.isRequired,
     githubURL: PropTypes.string.isRequired,
-    behanceURL: PropTypes.string.isRequired
+    behanceURL: PropTypes.string.isRequired,
+    aboutText: PropTypes.string.isRequired,
 };
 
-const OverallContainer = styled("div")`
+const RegularDisplayContainer = styled("div")`
     padding-top: 5em;
-    padding-bottom: 6em;
-    margin-bottom: 6em;
+    margin-bottom: 5em;
     max-width: 100%;
     display: grid;
     grid-template: 
@@ -25,18 +26,10 @@ const OverallContainer = styled("div")`
         "middle middle middle" 60%
         "bottomCV . bottomContact" 20% 
         / 47% 6% 47%;     
-    ${'' /* grid-template-columns: 47% 6% 47%; */}
     justify-items: center;
 
     @media(max-width:${dimensions.maxwidthMobile}px) {
-       padding-top: 0em;
-       margin-bottom: 3em;
-       grid-template: 
-        "topDes topSep topDev" 22%
-        "middle middle middle" 44%
-        "bottomCV bottomCV bottomCV" 22% 
-        "bottomContact bottomContact bottomContact" 22% 
-        / 47% 6% 47%;
+        display: none;
     }
 
     h1 {
@@ -59,11 +52,24 @@ const DesignerContainer = styled.a`
         font-bold
         text-designer-purple
         no-underline
+        cursor-pointer
+        px-2
         `
         };
     grid-area: topDes;
     justify-self: end;
     align-self: end;
+
+    background: linear-gradient(to bottom, #5B2AC5, 0%, #5B2AC5);
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 2px 0px;
+    transition: background-size .2s;
+
+    &:hover {
+        color: #fff;
+        background-size: 2px 50px;
+    }
 `
 const DeveloperContainer = styled.a`
     ${tw`
@@ -73,11 +79,24 @@ const DeveloperContainer = styled.a`
         font-bold
         text-developer-blue
         no-underline
+        cursor-pointer
+        px-2
         `
-        };
+    };
     grid-area: topDev;
     justify-self: start;
     align-self: end;
+
+    background: linear-gradient(to bottom, #3370EE, 0%, #3370EE);
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 2px 0px;
+    transition: background-size .2s;
+
+    &:hover {
+        color: #fff;
+        background-size: 2px 50px;
+    }
     
 `
 const Seperator = styled.div`
@@ -101,6 +120,7 @@ const CVButtonContainer = styled.div`
 
     @media(max-width:${dimensions.maxwidthMobile}px) {
        justify-self: center;
+       align-self: center;
     }
 `
 
@@ -110,18 +130,80 @@ const ContactButtonContainer = styled.div`
     
     @media(max-width:${dimensions.maxwidthMobile}px) {
        justify-self: center;
+       display: none;
     }
 `
 
-function LandingGraphic(props) {
-    const { cvUrl, githubURL, behanceURL } = props;
+const MobileDisplayContainer = styled.div`
+    display: none;
+    
+    @media(max-width:${dimensions.maxwidthMobile}px) {
+        ${tw`
+            flex
+            flex-col
+        `}
+        
+        h1 {
+            ${tw`
+                my-0
+                leading-tight
+
+            `}
+            background: linear-gradient(to right, #5B2AC5 , #3370EE);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            ${tw`
+                text-base
+            `}   
+            
+            a#designer {
+                ${tw`
+                    font-semibold
+                    no-underline
+                    text-designer-purple
+                `}
+                
+            }
+
+            a#developer {
+                ${tw`
+                    font-semibold
+                    no-underline
+                    text-developer-blue
+                `}
+            }         
+        }
+    }   
+`
+
+const FindOutMore = styled.a`
+    ${tw`
+        flex
+        flex-row
+        self-end
+        mt-6
+        items-center
+        no-underline
+        text-black
+    `}
+    
+    p {
+        padding-right: 0.5em;
+    }
+`
+
+
+const RegularDisplayFragment = ({cvUrl, githubURL, behanceURL}) => {
     return (
-        <OverallContainer>
+        <RegularDisplayContainer>
             <DesignerContainer href={behanceURL}> Designer </DesignerContainer>
             <Seperator>|</Seperator>
             <DeveloperContainer href={githubURL}> Developer</DeveloperContainer>
             <HeroContainer>
-                <HeroTypography title="Arthur Lee." weight={800}/>
+                <HeroTypography title="Arthur Lee" weight={800} type="one"/>
             </HeroContainer>
             <CVButtonContainer>
                 <RoundButton 
@@ -132,12 +214,57 @@ function LandingGraphic(props) {
             </CVButtonContainer>
             <ContactButtonContainer>
                 <RoundButton 
-                    onClick={() => window.location.href=cvUrl} 
+                    onClick={() => window.location.href="#contact"} 
                     title="Contact Me" 
                     type="blue"
                 />
             </ContactButtonContainer>
-        </OverallContainer>
+        </RegularDisplayContainer>
+    )
+}
+
+const MobileDisplayFragment = ({cvUrl, githubURL, behanceURL, aboutText}) => {
+    return (
+        <MobileDisplayContainer>
+            <h1>Design</h1>
+            <h1>Technologist.</h1>
+            <p>
+                I’m Arthur, an aspiring <a href={behanceURL} id="designer">designer</a> / <a href={githubURL} id="developer">developer</a>. I am schooling in NUS as a Computer Science major with a minor in Interactive Media Development. I am currently a Software Engineer Intern at StaffAny.
+            </p>
+            <CVButtonContainer>
+                <RoundButton 
+                    onClick={() => window.location.href=cvUrl} 
+                    title="View my CV" 
+                    type="purple"
+                />
+            </CVButtonContainer>
+            <FindOutMore href="#skillsets"> 
+                <p>or, find out more </p>
+                <FontAwesomeIcon icon={faArrowAltCircleDown} />
+            </FindOutMore>
+
+        </MobileDisplayContainer>
+    )
+}
+
+
+function LandingGraphic(props) {
+    const { cvUrl, githubURL, behanceURL, aboutText } = props;
+    return (
+        <div>
+            <RegularDisplayFragment 
+                cvUrl={cvUrl} 
+                githubURL={githubURL} 
+                behanceURL={behanceURL} 
+            />
+            <MobileDisplayFragment 
+                cvUrl={cvUrl} 
+                githubURL={githubURL} 
+                behanceURL={behanceURL} 
+                aboutText={aboutText} 
+            />
+        </div>
+
     );
 }
 
