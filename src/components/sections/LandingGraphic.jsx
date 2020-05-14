@@ -17,7 +17,7 @@ LandingGraphic.propTypes = {
 };
 
 const RegularDisplayContainer = styled("div")`
-    padding-top: 5em;
+    padding-top: 2em;
     margin-bottom: 5em;
     max-width: 100%;
     display: grid;
@@ -49,7 +49,7 @@ const DesignerContainer = styled.a`
         text-lg
         sm:text-3xl
         font-sans
-        font-bold
+        font-semibold
         text-designer-purple
         no-underline
         cursor-pointer
@@ -76,7 +76,7 @@ const DeveloperContainer = styled.a`
         text-lg
         sm:text-3xl
         font-sans
-        font-bold
+        font-semibold
         text-developer-blue
         no-underline
         cursor-pointer
@@ -229,7 +229,7 @@ const MobileDisplayFragment = ({cvUrl, githubURL, behanceURL, aboutText}) => {
             <h1>Design</h1>
             <h1>Technologist.</h1>
             <p>
-                I’m Arthur, an aspiring <a href={behanceURL} id="designer">designer</a> / <a href={githubURL} id="developer">developer</a>. I am schooling in NUS as a Computer Science major with a minor in Interactive Media Development. I am currently a Software Engineer Intern at StaffAny.
+                I’m Arthur, an aspiring <a href={behanceURL} id="designer">designer</a> / <a href={githubURL} id="developer">developer</a>. I am schooling in NUS as a Computer Science major with a minor in Interactive Media Development. I am currently interning at StaffAny as a Software Engineer Intern.
             </p>
             <CVButtonContainer>
                 <RoundButton 
