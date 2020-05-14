@@ -49,6 +49,7 @@ const globalStyles = css`
         min-height: 100% !important;
     }
 
+
 `
 
 export default globalStyles;

@@ -4,6 +4,8 @@ import styled from "@emotion/styled";
 import tw from "tailwind.macro";
 import { Link } from "gatsby";
 import HamburgerMenu from "react-hamburger-menu";
+import {isInView, getElement, handleScroll} from "../../utils/scrollspy";
+
 
 import dimensions from "styles/dimensions";
 
@@ -35,6 +37,22 @@ const OverallContainer = styled("div")`
             flex-col
             items-start
         `}
+    }
+
+    animation-name: scaleIn;
+    animation-duration: 0.4s;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+
+    @keyframes scaleIn {
+        0%   { 
+            transform: scale(0.7);
+            opacity: 0;
+        }
+        100% { 
+            transform: scale(1);
+            opacity: 1;
+        }
     }
 
 `
@@ -117,6 +135,8 @@ const LinksContainer = styled.div`
     }
 `
 
+
+
 const ButtonWrapper = styled.div`
     ${tw`
         cursor-pointer
@@ -148,7 +168,7 @@ const MenuDisplay = ({cvUrl, isSectionInView}) => {
     const {home, skillsets, experience, projects, contact} = isSectionInView;
 
     return (
-        <OverallContainer>
+        <OverallContainer id="MenuDisplay">
             <LinksContainer>
                 <a href="https://github.com/artlee06">Github</a>
                 <a href="https://www.behance.net/ArthurLeeYingKiu">Behance</a>
@@ -169,41 +189,12 @@ const MenuDisplay = ({cvUrl, isSectionInView}) => {
 
 const notableElementIds = ["home", "skillsets", "experience", "projects", "contact"];
 
-const isInView = (element) => {
-    if (element === null) {
-        return false;
-    } else {
-        const rect = element.getBoundingClientRect(); // gets the element's bounding area including padding
-        return rect.top >= 0 && rect.bottom <= window.innerHeight;  
-    }
-}
-
-const getElement = (id) => {
-    return document.getElementById(id);
-}
-
 const allElements = notableElementIds.map((id) => {
     return {
         id: id, 
         element: getElement(id)
     };
 });
-
-const handleScroll = (setState) => {
-    allElements.forEach((object) => {
-        const id = object.id;
-        const element = object.element;
-        setState((inViewState) => {  
-            const newState = {
-                ...inViewState
-            };
-            newState[id] = isInView(element);
-            console.log(newState);
-            return newState;
-        });
-        console.log(id + " " + isInView(element));
-    });
-}
 
 const initialState = {
     home: true,
@@ -214,13 +205,18 @@ const initialState = {
 }
 
 
+
 function NavMenu(props) {
     const {isOpen, handleClick, cvUrl} = props;
 
     const [isSectionInView, setInView] = useState(initialState);
 
     useEffect(() => {
-        window.addEventListener("scroll", () => handleScroll(setInView));
+        window.addEventListener("scroll", () => handleScroll(setInView, notableElementIds));
+        // returned function will be called on component unmount 
+        return () => {
+            window.removeEventListener('scroll', () => {});
+        }
     }, []);
 
     return (
