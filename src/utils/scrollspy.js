@@ -12,10 +12,6 @@ export const isInView = (ele) => {
     }
   }
 
-export const getElement = (id) => {
-    return document.getElementById(id);
-}
-
 
 export const handleScroll = (setState, allElementsIDs) => {
     allElementsIDs.forEach((id) => {
@@ -27,6 +23,5 @@ export const handleScroll = (setState, allElementsIDs) => {
             newState[id] = isInView(element);
             return newState;
         });
-        // console.log(id + " " + isInView(element));
     });
 }
