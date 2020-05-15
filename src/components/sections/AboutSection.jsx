@@ -8,7 +8,7 @@ function AboutSection(props) {
     const { imageURL, text } = props;
     const OverallContainer = styled("div")`
         padding-top: 5em;
-        margin-bottom: 5em;
+        margin-bottom: 7em;
         max-width: 100%;
         display: flex;
         flex-direction: row;

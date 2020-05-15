@@ -18,7 +18,7 @@ LandingGraphic.propTypes = {
 
 const RegularDisplayContainer = styled("div")`
     padding-top: 2em;
-    margin-bottom: 5em;
+    margin-bottom: 7em;
     max-width: 100%;
     display: grid;
     grid-template: 
@@ -156,7 +156,8 @@ const MobileDisplayContainer = styled.div`
         p {
             ${tw`
                 text-base
-                my-8
+                mt-6
+                mb-8
             `}   
             
             a#designer {
@@ -184,7 +185,7 @@ const FindOutMore = styled.a`
         flex
         flex-row
         self-end
-        mt-8
+        mt-6
         items-center
         no-underline
         text-black
