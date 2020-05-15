@@ -146,17 +146,17 @@ const MobileDisplayContainer = styled.div`
         h1 {
             ${tw`
                 my-0
-                leading-tight
-
             `}
             background: linear-gradient(to right, #5B2AC5 , #3370EE);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            line-height: 1.35em;
         }
 
         p {
             ${tw`
                 text-base
+                my-8
             `}   
             
             a#designer {
@@ -184,7 +184,7 @@ const FindOutMore = styled.a`
         flex
         flex-row
         self-end
-        mt-6
+        mt-8
         items-center
         no-underline
         text-black

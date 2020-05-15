@@ -22,7 +22,7 @@ const HeaderContent = styled("div")`
     justify-content: space-between;
     @media(max-width: ${dimensions.maxwidthMobile}px) {
         svg {
-            width: 40px;
+            width: 50px;
         }
     }
     ${tw`
