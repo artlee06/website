@@ -46,7 +46,7 @@ const FooterAuthor = styled("a")`
 
 
 const ContactFragment = ({cvUrl}) => {
-    const message = "Like what you see? I'd love to get in touch to discuss potential collaboration and opportunities! Contact me via the following sites or email.";
+    const message = "Like what you see? I'd love to get in touch to discuss potential collaborations and opportunities! Contact me via the following sites or email.";
     const OverallContainer = styled.div`
         max-width: ${dimensions.maxwidthDesktop}px;
         padding-left: ${dimensions.paddingHorizontalDesktop}em;
