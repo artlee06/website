@@ -23,7 +23,7 @@ const ProjectHeroContainer = styled("div")`
     }
 `
 
-const ProjectTitle = styled("div") `
+const ProjectTitle = styled("div")`
     max-width: 550px;
     margin: 0 auto;
     text-align: center;
@@ -116,10 +116,17 @@ const Project = ({ project, meta }) => {
                 <ProjectBody>
                     {RichText.render(project.project_description)}
                     <WorkLink to={"#projects"}>
-                        <RoundButton title="See other work" type="blue" className="Button--secondary"/>
+                        <RoundButton title="See other work" type="blue" className="Button--secondary" />
                     </WorkLink>
                 </ProjectBody>
             </Layout>
+            <style type="text/css">
+                {`
+                body {
+                    margin: 0;
+                }
+            `}
+            </style>
         </>
     )
 }
@@ -128,7 +135,7 @@ export default ({ data }) => {
     const projectContent = data.prismic.allProjects.edges[0].node;
     const meta = data.site.siteMetadata;
     return (
-        <Project project={projectContent} meta={meta}/>
+        <Project project={projectContent} meta={meta} />
     )
 }
 

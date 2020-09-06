@@ -67,6 +67,13 @@ const Work = ({ projects, meta }) => (
                 ))}
             </>
         </Layout>
+        <style type="text/css">
+            {`
+                body {
+                    margin: 0;
+                }
+            `}
+        </style>
     </>
 );
 
@@ -76,7 +83,7 @@ export default ({ data }) => {
     if (!projects) return null;
 
     return (
-        <Work projects={projects} meta={meta}/>
+        <Work projects={projects} meta={meta} />
     )
 }
 

@@ -85,6 +85,13 @@ const Experience = ({ posts, meta }) => (
                 ))}
             </BlogGrid>
         </Layout>
+        <style type="text/css">
+            {`
+                body {
+                    margin: 0;
+                }
+            `}
+        </style>
     </>
 );
 
@@ -94,7 +101,7 @@ export default ({ data }) => {
     if (!posts) return null;
 
     return (
-        <Experience posts={posts} meta={meta}/>
+        <Experience posts={posts} meta={meta} />
     )
 }
 

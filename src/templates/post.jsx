@@ -148,7 +148,7 @@ const Post = ({ post, meta }) => {
                         <Moment format="MMMM D, YYYY">{post.post_date}</Moment>
                     </PostDate>
                 </PostMetas>
-                    {post.post_hero_image && (
+                {post.post_hero_image && (
                     <PostHeroContainer>
                         <img src={post.post_hero_image.url} alt="bees" />
                         <PostHeroAnnotation>
@@ -160,6 +160,13 @@ const Post = ({ post, meta }) => {
                     {RichText.render(post.post_body)}
                 </PostBody>
             </Layout>
+            <style type="text/css">
+                {`
+                body {
+                    margin: 0;
+                }
+            `}
+            </style>
         </>
     )
 }
@@ -168,7 +175,7 @@ export default ({ data }) => {
     const postContent = data.prismic.allPosts.edges[0].node;
     const meta = data.site.siteMetadata;
     return (
-        <Post post={postContent} meta={meta}/>
+        <Post post={postContent} meta={meta} />
     )
 }
 
