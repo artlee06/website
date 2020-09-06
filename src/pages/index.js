@@ -72,13 +72,13 @@ const RenderBody = ({ home, projects, meta }) => (
             ].concat(meta)}
         />
         <div id="home">
-            <LandingGraphic cvUrl={home.cv.url} githubURL={home.github.url} behanceURL={home.behance.url} aboutText={RichText.asText(home.aboutmebody)}/>
+            <LandingGraphic cvUrl={home.cv.url} githubURL={home.github.url} behanceURL={home.behance.url} aboutText={RichText.asText(home.aboutmebody)} />
             <Section>
                 <AboutSection imageURL={home.aboutmepicture.url} text={RichText.asText(home.aboutmebody)} />
             </Section>
         </div>
         <Section id="skillsets">
-            <HeroTypography title="Skillsets" weight={600} type="one"/>
+            <HeroTypography title="Skillsets" weight={600} type="one" />
             <SkillsetsSection
                 designerDescription={home.designerdescription}
                 skillsDescription={home.skillsdescription}
@@ -89,28 +89,28 @@ const RenderBody = ({ home, projects, meta }) => (
             />
         </Section>
         <Section id="experience">
-            <HeroTypography 
-                title="Experience" 
+            <HeroTypography
+                title="Experience"
                 weight={600}
-                type="one" 
-                lineOne="Experience" 
+                type="one"
+                lineOne="Experience"
                 lineTwo="/ Education"
             />
-            <ExperienceSection 
+            <ExperienceSection
                 experienceDescription={home.experiencedescription}
                 educationDescription={home.educationdescription}
             />
         </Section>
         <Section id="projects">
-            <HeroTypography 
-                title="Latest Projects" 
-                weight={600} 
-                type="two" 
-                lineOne="Latest" 
+            <HeroTypography
+                title="Latest Projects"
+                weight={600}
+                type="two"
+                lineOne="Latest"
                 lineTwo="Projects"
             />
         </Section>
-            <Section>
+        <Section>
             {projects.map((project, i) => (
                 <ProjectCard
                     key={i}
@@ -122,20 +122,27 @@ const RenderBody = ({ home, projects, meta }) => (
                 />
             ))}
         </Section>
+        <style type="text/css">
+            {`
+                body {
+                    margin: 0;
+                }
+            `}
+        </style>
     </>
 );
 
 export default ({ data }) => {
     //Required check for no data being returned 
     const doc = data.prismic.allHomepagev2s.edges.slice(0, 1).pop();
-    const projects = data.prismic.allProjects.edges.reverse();
+    const projects = data.prismic.allProjects.edges;
     const meta = data.site.siteMetadata;
 
     if (!doc || !projects) return null;
 
     return (
         <Layout cvUrl={doc.node.cv.url}>
-            <RenderBody home={doc.node} projects={projects} meta={meta}/>
+            <RenderBody home={doc.node} projects={projects} meta={meta} />
         </Layout>
     )
 }
@@ -209,7 +216,7 @@ export const query = graphql`
                   }
                 }
             }
-            allProjects {
+            allProjects(sortBy:meta_firstPublicationDate_DESC) {
                 edges {
                     node {
                         project_title
@@ -219,6 +226,7 @@ export const query = graphql`
                         project_post_date
                         _meta {
                             uid
+                            firstPublicationDate
                         }
                     }
                 }

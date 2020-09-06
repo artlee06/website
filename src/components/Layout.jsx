@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { StaticQuery, graphql } from "gatsby";
 import styled from "@emotion/styled";
 import { Global } from "@emotion/core";
 import globalStyles from 'styles/global';
@@ -11,7 +10,7 @@ import Header from "components/Header";
 import 'styles/fonts.scss';
 
 const OverallContainer = styled.div`
-
+    margin: 0;
 `
 const LayoutContainer = styled.div`
     max-width: ${dimensions.maxwidthDesktop}px;
@@ -35,32 +34,18 @@ const LayoutContainer = styled.div`
 `;
 
 const Layout = ({ children, cvUrl }) => (
-    <StaticQuery
-        query={graphql`
-            query SiteTitleQuery {
-                site {
-                    siteMetadata {
-                        title
-                    }
-                }
-            }
-        `}
-        
-        render={data => (
-            <OverallContainer>
-                 <LayoutContainer className="div">
-                <Global styles={[globalStyles, typeStyles]} />
-                <div className="Layout">
-                    <Header cvUrl={cvUrl} />
-                    <main className="Layout__content">
-                        {children}
-                    </main>
-                </div>
-                </LayoutContainer>
-                <Footer type="contact" cvUrl={cvUrl}/>
-            </OverallContainer>
-        )}
-    />
+    <OverallContainer>
+        <LayoutContainer className="div">
+            <Global styles={[globalStyles, typeStyles]} />
+            <div className="Layout">
+                <Header cvUrl={cvUrl} />
+                <main className="Layout__content">
+                    {children}
+                </main>
+            </div>
+        </LayoutContainer>
+        <Footer type="contact" cvUrl={cvUrl} />
+    </OverallContainer>
 )
 
 Layout.propTypes = {
