@@ -22,7 +22,7 @@ const FooterContainer = styled("div")`
     }
 `
 
-const FooterAuthor = styled("a")`
+const FooterAuthor = styled(Link)`
     font-size: 0.75em;
     color: white;
     display: flex;
@@ -45,7 +45,7 @@ const FooterAuthor = styled("a")`
 `
 
 
-const ContactFragment = ({cvUrl}) => {
+const ContactFragment = ({ cvUrl }) => {
     const message = "Like what you see? I'd love to get in touch to discuss potential collaborations and opportunities! Contact me via the following sites or email.";
     const OverallContainer = styled.div`
         max-width: ${dimensions.maxwidthDesktop}px;
@@ -124,22 +124,22 @@ const ContactFragment = ({cvUrl}) => {
                 <a href="https://www.linkedin.com/in/arthur-lee-ying-kiu/">LinkedIn</a>
                 <a href="mailto:ykarthurlee@gmail.com">Email</a>
             </LinksContainer>
-            <RoundButton type="transparent" title="View my CV" onClick={() => window.location.href=cvUrl} />
+            <RoundButton type="transparent" title="View my CV" onClick={() => window.location.href = cvUrl} />
         </OverallContainer>
     )
 }
 
-function Footer(props){
+function Footer(props) {
     const { type, cvUrl } = props;
     const showContact = type === "contact";
 
     return (
         <FooterContainer id="contact">
             {showContact && <ContactFragment cvUrl={cvUrl} />}
-            <FooterAuthor href="#top">
-                © Arthur Lee 2020 
+            <FooterAuthor to="/">
+                © Arthur Lee 2020
             </FooterAuthor>
-        </FooterContainer>    
+        </FooterContainer>
     )
 }
 

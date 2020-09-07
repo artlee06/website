@@ -63,7 +63,7 @@ const WorkLink = styled(Link)`
 `
 
 
-const Project = ({ project, meta }) => {
+const Project = ({ project, meta, cvUrl }) => {
     return (
         <>
             <Helmet
@@ -104,7 +104,7 @@ const Project = ({ project, meta }) => {
                     },
                 ].concat(meta)}
             />
-            <Layout>
+            <Layout cvUrl={cvUrl}>
                 <ProjectTitle>
                     {RichText.render(project.project_title)}
                 </ProjectTitle>
@@ -115,7 +115,7 @@ const Project = ({ project, meta }) => {
                 )}
                 <ProjectBody>
                     {RichText.render(project.project_description)}
-                    <WorkLink to={"#projects"}>
+                    <WorkLink to={"/#projects"}>
                         <RoundButton title="See other work" type="blue" className="Button--secondary" />
                     </WorkLink>
                 </ProjectBody>
@@ -134,8 +134,9 @@ const Project = ({ project, meta }) => {
 export default ({ data }) => {
     const projectContent = data.prismic.allProjects.edges[0].node;
     const meta = data.site.siteMetadata;
+    const cvUrl = data.prismic.allHomepagev2s.edges[0].node.cv.url
     return (
-        <Project project={projectContent} meta={meta} />
+        <Project project={projectContent} meta={meta} cvUrl={cvUrl} />
     )
 }
 
@@ -159,6 +160,18 @@ export const query = graphql`
                         _meta {
                             uid
                         }
+                    }
+                }
+            }
+            allHomepagev2s {
+                edges {
+                    node {
+                        cv {
+                            ... on PRISMIC__ExternalLink {
+                              _linkType
+                              url
+                            }
+                          }
                     }
                 }
             }
