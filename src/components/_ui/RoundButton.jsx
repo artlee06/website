@@ -49,7 +49,7 @@ function RoundButton(props) {
             text-base
             font-sans
             font-semibold
-            rounded-full
+            rounded-md
             px-16
             sm:px-12
             py-3

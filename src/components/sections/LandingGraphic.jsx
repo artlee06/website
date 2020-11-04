@@ -55,7 +55,7 @@ const DesignerContainer = styled.a`
         cursor-pointer
         px-2
         `
-        };
+    };
     grid-area: topDes;
     justify-self: end;
     align-self: end;
@@ -108,7 +108,7 @@ const Seperator = styled.div`
         font-bold
         text-gray-400
         `
-        };
+    };
     grid-area: topSep;
     justify-self: center;
     align-self: end;
@@ -119,8 +119,8 @@ const CVButtonContainer = styled.div`
     justify-self: end;
 
     @media(max-width:${dimensions.maxwidthMobile}px) {
-       justify-self: center;
-       align-self: center;
+    justify-self: center;
+    display: none;
     }
 `
 
@@ -129,8 +129,8 @@ const ContactButtonContainer = styled.div`
     justify-self: start;
     
     @media(max-width:${dimensions.maxwidthMobile}px) {
-       justify-self: center;
-       display: none;
+       justify-self: flex-end;
+       align-self: flex-start;
     }
 `
 
@@ -141,7 +141,9 @@ const MobileDisplayContainer = styled.div`
         ${tw`
             flex
             flex-col
+            justify-center
         `}
+        min-height: 80vh;
         
         h1 {
             ${tw`
@@ -180,43 +182,27 @@ const MobileDisplayContainer = styled.div`
     }   
 `
 
-const FindOutMore = styled.a`
-    ${tw`
-        flex
-        flex-row
-        self-end
-        mt-6
-        items-center
-        no-underline
-        text-black
-    `}
-    
-    p {
-        padding-right: 0.5em;
-    }
-`
 
-
-const RegularDisplayFragment = ({cvUrl, githubURL, behanceURL}) => {
+const RegularDisplayFragment = ({ cvUrl, githubURL, behanceURL }) => {
     return (
         <RegularDisplayContainer>
             <DesignerContainer href={behanceURL}> Designer </DesignerContainer>
             <Seperator>|</Seperator>
-            <DeveloperContainer href={githubURL}> Developer</DeveloperContainer>
+            <DeveloperContainer href={githubURL}> Engineer </DeveloperContainer>
             <HeroContainer>
-                <HeroTypography title="Arthur Lee" weight={800} type="one"/>
+                <HeroTypography title="Arthur Lee" weight={800} type="one" />
             </HeroContainer>
             <CVButtonContainer>
-                <RoundButton 
-                    onClick={() => window.location.href=cvUrl} 
-                    title="View my CV" 
+                <RoundButton
+                    onClick={() => window.location.href = cvUrl}
+                    title="View my CV"
                     type="purple"
                 />
             </CVButtonContainer>
             <ContactButtonContainer>
-                <RoundButton 
-                    onClick={() => window.location.href="#contact"} 
-                    title="Contact Me" 
+                <RoundButton
+                    onClick={() => window.location.href = "mailto:ykarthurlee@gmail.com"}
+                    title="Get In Touch"
                     type="blue"
                 />
             </ContactButtonContainer>
@@ -224,26 +210,24 @@ const RegularDisplayFragment = ({cvUrl, githubURL, behanceURL}) => {
     )
 }
 
-const MobileDisplayFragment = ({cvUrl, githubURL, behanceURL, aboutText}) => {
+const MobileDisplayFragment = ({ githubURL, behanceURL, aboutText }) => {
     return (
         <MobileDisplayContainer>
             <h1>Design</h1>
             <h1>Technologist.</h1>
             <p>
-                I’m Arthur, an aspiring <a href={behanceURL} id="designer">designer</a> / <a href={githubURL} id="developer">developer</a>. I am schooling in NUS as a Computer Science major with a minor in Interactive Media Development. I am currently interning at StaffAny as a Software Engineer Intern.
+                {"I’m Arthur, an aspiring "}<a href={behanceURL} id="designer">designer</a>/<a href={githubURL} id="developer">engineer</a> based in Singapore.
+                <br />
+                <br />
+                {aboutText}
             </p>
-            <CVButtonContainer>
-                <RoundButton 
-                    onClick={() => window.location.href=cvUrl} 
-                    title="View my CV" 
-                    type="purple"
+            <ContactButtonContainer>
+                <RoundButton
+                    onClick={() => window.location.href = "mailto:ykarthurlee@gmail.com"}
+                    title="Get In Touch"
+                    type="blue"
                 />
-            </CVButtonContainer>
-            <FindOutMore href="#skillsets"> 
-                <p>or, find out more </p>
-                <FontAwesomeIcon icon={faArrowAltCircleDown} />
-            </FindOutMore>
-
+            </ContactButtonContainer>
         </MobileDisplayContainer>
     )
 }
@@ -253,16 +237,16 @@ function LandingGraphic(props) {
     const { cvUrl, githubURL, behanceURL, aboutText } = props;
     return (
         <div>
-            <RegularDisplayFragment 
-                cvUrl={cvUrl} 
-                githubURL={githubURL} 
-                behanceURL={behanceURL} 
+            <RegularDisplayFragment
+                cvUrl={cvUrl}
+                githubURL={githubURL}
+                behanceURL={behanceURL}
             />
-            <MobileDisplayFragment 
-                cvUrl={cvUrl} 
-                githubURL={githubURL} 
-                behanceURL={behanceURL} 
-                aboutText={aboutText} 
+            <MobileDisplayFragment
+                cvUrl={cvUrl}
+                githubURL={githubURL}
+                behanceURL={behanceURL}
+                aboutText={aboutText}
             />
         </div>
 

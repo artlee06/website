@@ -50,7 +50,7 @@ function AboutSection(props) {
             <img src={imageURL} width="50%" height="50%"></img>
             <TextContainer>
                 <h1><span className="helloText">Hello</span> 👋</h1>
-                <h2> {text} </h2>
+                <h2> {"I'm Arthur, an aspiring designer/engineer based in Singapore. " + text} </h2>
             </TextContainer>
         </OverallContainer>
     )

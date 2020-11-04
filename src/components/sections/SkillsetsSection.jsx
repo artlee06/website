@@ -5,11 +5,11 @@ import tw from "tailwind.macro";
 import dimensions from "styles/dimensions";
 import { RichText } from "prismic-reactjs";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCode, faPencilRuler  } from "@fortawesome/free-solid-svg-icons"
+import { faCode, faPencilRuler } from "@fortawesome/free-solid-svg-icons"
 
 function SkillsetsSection(props) {
 
-    const { designerDescription, skillsDescription, toolsDescription, devDescription, frameworksDes, langDescription} = props;
+    const { designerDescription, skillsDescription, toolsDescription, devDescription, frameworksDes, langDescription } = props;
 
     const OverallContainer = styled("div")`
         max-width: 100%;
@@ -44,7 +44,7 @@ function SkillsetsSection(props) {
             pb-6
         `};
     `
-    
+
     const DeveloperContainer = styled("div")`
         ${tw`
             flex
@@ -88,7 +88,7 @@ function SkillsetsSection(props) {
 
     return (
         <OverallContainer>
-            
+
             <DesignerContainer>
                 <TitleContainer>
                     <FontAwesomeIcon icon={faPencilRuler} />
@@ -109,13 +109,13 @@ function SkillsetsSection(props) {
                     {RichText.render(toolsDescription)}
                 </TextContainer>
             </DesignerContainer>
-            
+
 
             <DeveloperContainer>
                 <TitleContainer>
                     <FontAwesomeIcon icon={faCode} />
                     {" "}
-                    Developer
+                    Engineer
                 </TitleContainer>
                 <TextContainer>
                     {RichText.render(devDescription)}
