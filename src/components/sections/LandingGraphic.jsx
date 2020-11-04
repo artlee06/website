@@ -143,7 +143,7 @@ const MobileDisplayContainer = styled.div`
             flex-col
             justify-center
         `}
-        min-height: 80vh;
+        min-height: 70vh;
         
         h1 {
             ${tw`
