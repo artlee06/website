@@ -20,7 +20,7 @@ function RoundButton(props) {
                         text-designer-purple
                     `}    
                 `;
-            case 'blue': 
+            case 'blue':
                 return css`
                     ${tw`
                         hover:bg-cover
@@ -31,7 +31,8 @@ function RoundButton(props) {
                         text-developer-blue
                     `}    
                 `;
-            case 'transparent': 
+            default:
+            case 'transparent':
                 return css`
                     ${tw`
                         hover:text-developer-blue
@@ -55,14 +56,14 @@ function RoundButton(props) {
             border-2
             cursor-pointer
             `
-            };
+        };
         ${TypeStyling};
 
         transition: background-color 0.3s;
         transition-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
 
-    `   
-    
+    `
+
     return (
         <ButtonContainer
             onClick={onClick}
